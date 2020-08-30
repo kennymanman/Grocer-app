@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-export const CartScreen = () => {
+export default function CartScreen ()  {
   return (
     <View>
-      <Text></Text>
+      <Text>Cart</Text>
      </View>
   );
 }

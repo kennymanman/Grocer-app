@@ -1,11 +1,8 @@
+import React from "react";
+import { View, StyleSheet } from "react-native";
+import { DrawerItem, DrawerContentScrollView } from "@react-navigation/drawer";
 
-import React from 'react';
-import { View, StyleSheet } from 'react-native';
-import {
-  DrawerItem,
-  DrawerContentScrollView,
-} from '@react-navigation/drawer';
-import {
+import { 
   useTheme,
   Avatar,
   Title,
@@ -14,23 +11,25 @@ import {
   Drawer,
   Text,
   TouchableRipple,
-  Switch,
-} from 'react-native-paper';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
+  Switch
+} from "react-native-paper";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import BottomTabs from "./BottomTabs";
 
-export function DrawerContent(props) {
+export default function DrawerContent(props) {
   return (
     <DrawerContentScrollView {...props}>
-      <View
-        style={
-          styles.drawerContent
-        }
-      >
+
+
+
+      
+      <View style={styles.drawerContent}>
+
         <View style={styles.userInfoSection}>
           <Avatar.Image
             source={{
               uri:
-                'https://pbs.twimg.com/profile_images/952545910990495744/b59hSXUd_400x400.jpg',
+                "https://pbs.twimg.com/profile_images/952545910990495744/b59hSXUd_400x400.jpg"
             }}
             size={50}
           />
@@ -52,6 +51,16 @@ export function DrawerContent(props) {
           </View>
         </View>
         <Drawer.Section style={styles.drawerSection}>
+
+
+
+        
+
+
+          
+          
+          
+          
           <DrawerItem
             icon={({ color, size }) => (
               <MaterialCommunityIcons
@@ -63,6 +72,11 @@ export function DrawerContent(props) {
             label="Profile"
             onPress={() => {}}
           />
+
+
+
+
+
           <DrawerItem
             icon={({ color, size }) => (
               <MaterialCommunityIcons name="tune" color={color} size={size} />
@@ -70,6 +84,9 @@ export function DrawerContent(props) {
             label="Preferences"
             onPress={() => {}}
           />
+
+
+
           <DrawerItem
             icon={({ color, size }) => (
               <MaterialCommunityIcons
@@ -81,6 +98,9 @@ export function DrawerContent(props) {
             label="Bookmarks"
             onPress={() => {}}
           />
+
+
+
         </Drawer.Section>
         <Drawer.Section title="Preferences">
           <TouchableRipple onPress={() => {}}>
@@ -107,42 +127,42 @@ export function DrawerContent(props) {
 
 const styles = StyleSheet.create({
   drawerContent: {
-    flex: 1,
+    flex: 1
   },
   userInfoSection: {
-    paddingLeft: 20,
+    paddingLeft: 20
   },
   title: {
     marginTop: 20,
-    fontWeight: 'bold',
+    fontWeight: "bold"
   },
   caption: {
     fontSize: 14,
-    lineHeight: 14,
+    lineHeight: 14
   },
   row: {
     marginTop: 20,
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center"
   },
   section: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginRight: 15,
+    flexDirection: "row",
+    alignItems: "center",
+    marginRight: 15
   },
   paragraph: {
-    fontWeight: 'bold',
-    marginRight: 3,
+    fontWeight: "bold",
+    marginRight: 3
   },
   drawerSection: {
     marginTop: 15,
   },
   preference: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    flexDirection: "row",
+    justifyContent: "space-between",
     paddingVertical: 12,
-    paddingHorizontal: 16,
-  },
+    paddingHorizontal: 16
+  }
 });
 
 

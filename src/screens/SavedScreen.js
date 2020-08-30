@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from 'react-native'
 export default function SavedScreen() {
     return (
         <View>
-            <Text></Text>
+            <Text>Saved</Text>
         </View>
     )
 }

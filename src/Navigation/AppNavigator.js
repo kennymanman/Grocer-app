@@ -1,7 +1,8 @@
-import React, { Fragment } from 'react'
-import { View, Text } from 'react-native'
-import DrawerContent from "../Navigation/DrawerContent"
-import BottomTabs from "../Navigation/BottomTabs"
+import React, { Fragment } from "react";
+import { View, Text } from "react-native";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import DrawerContent from "../Navigation/DrawerContent";
+import BottomTabs from "../Navigation/BottomTabs";
 
 
 
@@ -9,14 +10,15 @@ import BottomTabs from "../Navigation/BottomTabs"
 
 function AppNavigator() {
     return (
-        <View>
-           <DrawerContent /> 
-           <BottomTabs />
-        </View>
-    )
-}
+        <SafeAreaProvider>
+          
+          <BottomTabs />
+        </SafeAreaProvider>
+      );
+    }
+    
 
-export default AppNavigator
+export default AppNavigator;
 
 
 
