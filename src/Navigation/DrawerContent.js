@@ -14,7 +14,7 @@ import {
   Switch
 } from "react-native-paper";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import BottomTabs from "./BottomTabs";
+import BottomTabs from "./AppNavigator";
 
 export default function DrawerContent(props) {
   return (

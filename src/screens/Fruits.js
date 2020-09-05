@@ -10,7 +10,7 @@ import Icon from "react-native-vector-icons/FontAwesome5"
 
 
 
-export default function SavedScreen ({navigation}) {
+export default function Fruits ({navigation}) {
     return (
 
         <View style={styles.container}>
@@ -31,7 +31,7 @@ export default function SavedScreen ({navigation}) {
 
 
 
-<Text style={styles.rest}> Saved screen </Text>
+<Text style={styles.rest}> see my fruits </Text>
 
         </View>
 
