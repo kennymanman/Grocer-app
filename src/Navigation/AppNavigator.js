@@ -9,21 +9,113 @@ import SearchScreen from "../screens/SearchScreen";
  import { FontAwesome } from '@expo/vector-icons';
  import { FontAwesome5 } from '@expo/vector-icons';
  import { Feather } from '@expo/vector-icons';
- import { createDrawerNavigator } from '@react-navigation/drawer';
+ import { createDrawerNavigator, DrawerItemList,DrawerContent,DrawerContentScrollView, DrawerItem } from '@react-navigation/drawer';
  import { NavigationContainer } from '@react-navigation/native';
-import {View} from "react-native"
- import { DrawerItem, DrawerContentScrollView } from "@react-navigation/drawer";
- import { 
-  useTheme,
-  Avatar,
-  Title,
-  Caption,
-  Paragraph,
+import {View, SafeAreaView, ScrollView, Image} from "react-native"
+ 
+
+import Fruits from "../screens/Fruits"
+import Vegetables from "../screens/Vegetables"
+import Meat from "../screens/Meat"
+import Bread from "../screens/Bread"
+import Eggs from "../screens/Eggs"
+import Cereal from "../screens/Cereal"
+import Drinks from "../screens/Drinks"
+import Alcohol from "../screens/Alcohol"
+import Snacks from "../screens/Snacks"
+import Spices from "../screens/Spices"
+import Pantry from "../screens/Pantry"
+import House from "../screens/House"
+import Health from "../screens/Health"
+import Kids from "../screens/Kids"
+import { createStackNavigator } from '@react-navigation/stack';
+import ProductPage from "../screens/ProductPage"
+import SignUp from "../screens/SignUp"
+import LogIn from "../screens/LogIn"
+
+import { Avatar, Title } from 'react-native-paper';
+import { Text } from 'react-native-elements';
+
+
+
+
+
+
+
+
+function CustomDrawerContent(props) {
+  return (
+    <SafeAreaView style={{flex:1}}>
+
+<View style={{height:50, width:30, marginTop:23}}>
+
+<Avatar.Image size={150} source={require('../img/die.jpg')}  style={{marginLeft:61, marginBottom:10}}/>
+
+<Title style={{width:224, marginLeft:57}}>Rakeem Micheal </Title>
   
-  Text,
-  TouchableRipple,
-  Switch
-} from "react-native-paper";
+</View>
+
+
+
+    <DrawerContentScrollView {...props} style={{marginTop:130}}>
+      <DrawerItemList {...props} />
+      <DrawerItem
+        label="Help"
+        onPress={() => Linking.openURL('https://mywebsite.com/help')}
+      />
+    </DrawerContentScrollView>
+    </SafeAreaView>
+  );
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+const Stack = createStackNavigator();
+
+function MyStack() {
+  return (
+    <Stack.Navigator headerMode={"none"}>
+      <Stack.Screen name="Fruits" component={Fruits} />
+      <Stack.Screen name="Vegetables" component={Vegetables} />
+      <Stack.Screen name="Meat" component={Meat} />
+      <Stack.Screen name="Bread" component={Bread} />
+      <Stack.Screen name="Eggs" component={Eggs} />
+      <Stack.Screen name="Cereal" component={Cereal} />
+      <Stack.Screen name="Drinks" component={Drinks} />
+      <Stack.Screen name="Alcohol" component={Alcohol} />
+      <Stack.Screen name="Snacks" component={Snacks} />
+      <Stack.Screen name="Spices" component={Spices} />
+      <Stack.Screen name="Pantry" component={Pantry} />
+      <Stack.Screen name="House" component={House} />
+      <Stack.Screen name="Health" component={Health} />
+      <Stack.Screen name="Kids" component={Kids} />
+      <Stack.Screen name="productpage" component={ProductPage} />
+      <Stack.Screen name="SignUp" component={SignUp} />
+      <Stack.Screen name="LogIn" component={LogIn} />
+    </Stack.Navigator>
+  );
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -59,7 +151,11 @@ const Tab = createMaterialBottomTabNavigator();
       <Tab.Screen
         name="HomeScreen"
         component={HomeScreen}
+        
         options={{
+
+          
+          
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="tree" color={color} size={28} />
           ),
@@ -106,6 +202,12 @@ const Tab = createMaterialBottomTabNavigator();
 
 
 
+
+
+
+
+
+
     </Tab.Navigator>
     
   );
@@ -147,9 +249,15 @@ const Drawer = createDrawerNavigator();
 
 
     
-      <Drawer.Navigator initialRouteName="Home">
+      <Drawer.Navigator drawerContent={props => <CustomDrawerContent {...props} />}  initialRouteName="Home">
+
+
+
         <Drawer.Screen name="Home" component={MainTabNavigator} />
-        <Drawer.Screen name="Notifications" component={CartScreen} />
+        
+        <Drawer.Screen name="Cat" component={MyStack} />
+        <Drawer.Screen name="nat" component={SignUp} />
+        <Drawer.Screen name="dat" component={LogIn} />
       </Drawer.Navigator>
 
       
