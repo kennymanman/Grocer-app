@@ -110,7 +110,7 @@ export default function SearchScreen ({navigation}) {
 <Title>Fruits</Title>
 <View>
     <TouchableOpacity
-     onPress={() => navigation.navigate ( 'Cat', { screen: 'Fruits'}) }>
+     onPress={() => navigation.navigate ('Fruits') }>
 
 <Image  style={{ width: 210, height: 270, alignItems: "center", borderRadius: 20, marginTop: 10, marginBottom:100}} source={pat}  />
 
