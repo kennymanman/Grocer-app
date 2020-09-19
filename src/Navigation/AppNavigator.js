@@ -59,10 +59,94 @@ function CustomDrawerContent(props) {
 
     <DrawerContentScrollView {...props} style={{marginTop:130}}>
       <DrawerItemList {...props} />
+
+
       <DrawerItem
-        label="Help"
-        onPress={() => Linking.openURL('https://mywebsite.com/help')}
-      />
+   label="Home"
+   icon={({ color, size }) => (
+    <MaterialCommunityIcons
+      name="tree"
+      color={"black"}
+      size={26} />
+   )}
+   onPress={() => {<HomeScreen />}}
+
+   />
+
+
+      <DrawerItem
+   
+   label="Delivery Info"
+  
+   icon={({ color, size }) => (
+    <MaterialCommunityIcons
+      name="account-card-details-outline"
+      color={"black"}
+      size={size} />
+   )}
+
+   />
+
+
+
+
+
+   <DrawerItem
+   
+   label="My Orders"
+  
+   icon={({ color, size }) => (
+    <MaterialCommunityIcons
+      name="package-variant"
+      color={"black"}
+      size={size} />
+   )}
+
+   />
+
+
+<DrawerItem
+   
+   label="Need Help?"
+  
+   icon={({ color, size }) => (
+    <Feather
+      name="help-circle"
+      color={"black"}
+      size={size} />
+   )}
+
+
+   onPress={() => Linking.openURL('https://mywebsite.com/help')}
+   />
+
+
+
+
+
+
+<DrawerItem
+   
+   label="Sign out"
+  
+   icon={({ color, size }) => (
+    <MaterialCommunityIcons
+      name="exit-to-app"
+      color={"black"}
+      size={size} />
+   )}
+
+
+   onPress={() => Linking.openURL('https://mywebsite.com/help')}
+   />
+
+
+
+
+
+
+
+
     </DrawerContentScrollView>
     </SafeAreaView>
   );
@@ -227,6 +311,13 @@ const Tab = createMaterialBottomTabNavigator();
 const Drawer = createDrawerNavigator();
 
  export default function AppNavigator() {
+
+
+
+
+
+
+
   return (
 
 
@@ -253,7 +344,7 @@ const Drawer = createDrawerNavigator();
 
 
 
-        <Drawer.Screen name="Home" component={MainTabNavigator} />
+        <Drawer.Screen name="Home"   component={MainTabNavigator} />
         
         <Drawer.Screen name="Cat" component={MyStack} />
         <Drawer.Screen name="nat" component={SignUp} />

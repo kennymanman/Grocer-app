@@ -99,7 +99,8 @@ icon ={  <Feather name="heart"  size={15} color="white"     />}
 
 
 
-const renderItem= ({ item })=> (
+const renderItem= ({ item  })=> (
+  <TouchableOpacity  onPress={() => navigation.navigate ( 'Cat', { screen: 'productpage'}) }>
     <Form
      name={item.name} 
      description={item.description}
@@ -107,7 +108,7 @@ const renderItem= ({ item })=> (
      price={item.price}
     
      />
-    
+    </TouchableOpacity>
      
 )
 
@@ -174,7 +175,7 @@ export default function Fruits ({navigation }) {
 
 
 <View style={{ marginBottom:100, paddingBottom:80}}>
-  <TouchableOpacity  onPress={() => navigation.navigate ( 'Cat', { screen: 'productpage'}) }>
+  
     <FlatList    numColumns={2}   
 
 data={data}
@@ -185,7 +186,7 @@ keyExtractor={item=>item.id}
 
     
   />
-</TouchableOpacity>
+
 </View>
 
 

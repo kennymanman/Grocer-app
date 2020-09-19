@@ -41,8 +41,16 @@ export default function SearchScreen ({navigation}) {
     return (
 
 
+        
+
 
         <View >
+
+
+
+
+
+
              
     
         <Header  style={{marginTop:12  }} searchBar rounded   >
