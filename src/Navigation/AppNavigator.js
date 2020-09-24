@@ -12,6 +12,7 @@ import SearchScreen from "../screens/SearchScreen";
  import { createDrawerNavigator, DrawerItemList,DrawerContent,DrawerContentScrollView, DrawerItem } from '@react-navigation/drawer';
  import { NavigationContainer } from '@react-navigation/native';
 import {View, SafeAreaView, ScrollView, Image} from "react-native"
+import {connect} from "react-redux"
  
 
 import Fruits from "../screens/Fruits"
@@ -69,7 +70,7 @@ function CustomDrawerContent(props) {
       color={"black"}
       size={26} />
    )}
-   onPress={() => {<HomeScreen />}}
+   component={MainTabNavigator }
 
    />
 
@@ -125,7 +126,7 @@ function CustomDrawerContent(props) {
 
 
 
-<DrawerItem
+<DrawerItem style={{marginTop:130}}
    
    label="Sign out"
   
@@ -166,9 +167,10 @@ function CustomDrawerContent(props) {
 
 const Stack = createStackNavigator();
 
-function MyStack() {
+function SearchScreenStack() {
   return (
     <Stack.Navigator headerMode={"none"}>
+      <Stack.Screen name="SearchScreen" component={SearchScreen} />
       <Stack.Screen name="Fruits" component={Fruits} />
       <Stack.Screen name="Vegetables" component={Vegetables} />
       <Stack.Screen name="Meat" component={Meat} />
@@ -253,7 +255,7 @@ const Tab = createMaterialBottomTabNavigator();
 
       <Tab.Screen
         name="SearchScreen"
-        component={SearchScreen}
+        component={SearchScreenStack}
         options={{  
           tabBarIcon: ({ color }) => (
             <FontAwesome name="search" color={color} size={24} />
@@ -277,11 +279,16 @@ const Tab = createMaterialBottomTabNavigator();
 
 
 <Tab.Screen
+
+
         name="CartScreen"
+        
         component={CartScreen}
         options={{ tabBarIcon: ({ color }) =>(
           <Feather name="shopping-bag" size={25} color={color} />
-        )
+        ),
+
+        tabBarBadge:0
        }}     /> 
 
 
@@ -346,9 +353,9 @@ const Drawer = createDrawerNavigator();
 
         <Drawer.Screen name="Home"   component={MainTabNavigator} />
         
-        <Drawer.Screen name="Cat" component={MyStack} />
-        <Drawer.Screen name="nat" component={SignUp} />
-        <Drawer.Screen name="dat" component={LogIn} />
+        
+        {/* <Drawer.Screen name="nat" component={SignUp} /> */}
+        {/*<Drawer.Screen name="dat" component={LogIn} /> */}
       </Drawer.Navigator>
 
       

@@ -77,6 +77,14 @@ const data = [
         description: "fresh from the seas",
         
         vendor: "pa salieu"
+    },
+
+
+    {
+      name:"Grape",
+      price: 300,
+      quantity: 5,
+      description:"blacker the berry"
     }
 
   ];

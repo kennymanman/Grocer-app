@@ -1,9 +1,74 @@
 import React from "react"
-import { View, Text, StyleSheet } from "react-native"
-import { Button } from 'react-native-elements';
+import { View,
+  Text, 
+  StyleSheet,
+  FlatList,
+  ImageBackground,
+  TouchableOpacity }
+   from "react-native"
+import { Button } from "react-native-elements";
 import Icon from "react-native-vector-icons/FontAwesome5"
 import { Ionicons } from '@expo/vector-icons';
-import {Header, Left, Right, Title, Body} from 'native-base'
+import { Feather } from '@expo/vector-icons';
+
+import {Header, Left, Right, Title, Body, Subtitle} from "native-base"
+import { Avatar,  Card,  Paragraph } from 'react-native-paper';
+import data from "./data"
+
+
+
+
+
+
+  
+const Form = ({name, description, price}) => (
+  
+  
+  <ImageBackground
+source={require("../img/sig.png")} 
+imageStyle={{borderRadius:12}}
+
+
+
+
+
+  style={{
+    height: 220,
+    width: 175,
+    position: "relative", // because it's parent
+    marginBottom:15,
+    marginTop:19,
+    marginRight:7,
+    marginLeft:4,
+    top: 2,
+    left: 2
+  }}
+>
+
+<Text    
+  style={{
+      fontWeight: "bold",
+      color: "white",
+      position: "absolute", // child
+      bottom: 0, // position where you want
+      left: 0,
+      marginBottom:55,
+      marginLeft:10,
+      fontSize: 20
+    }}
+  >
+    {name}
+  </Text>
+
+<Text style={{
+  bottom:0,
+   left:0,
+   position:"absolute",
+    fontSize:15,
+    marginBottom:35,
+     marginLeft:10,
+     color:"white"
+     }}>${price}</Text>
 
 
 
@@ -11,28 +76,96 @@ import {Header, Left, Right, Title, Body} from 'native-base'
 
 
 
-export default function Spices ({navigation}) {
+  <Text style={{
+    bottom:0,
+     left:0,
+     position: "absolute",
+      marginLeft:10,
+       color:"white",
+        fontSize:12,
+         marginBottom:5}}>
+  
+  {description}  </Text>
+
+
+
+
+
+  
+
+
+
+<Button type="clear"    
+   style={
+     {right:0,
+       top:0,
+        marginTop:1,
+         paddingLeft: 130,
+         }}
+icon ={  <Feather name="heart"  size={15} color="white"     />}
+
+/>
+
+</ImageBackground>
+);
+  
+
+
+
+
+
+
+
+
+const renderItem= ({ item, navigation  })=> (  //had to put navigation here so i could also render navigation.
+  <TouchableOpacity  onPress={() => navigation.navigate ("productpage") }>
+    <Form
+     name={item.name} 
+     description={item.description}
+     image={item.image}
+     price={item.price}
+    
+     />
+    </TouchableOpacity>
+     
+)
+
+
+
+
+
+
+
+
+
+
+export default function Spices ({navigation }) {
     return (
 
-        <View >
+ <View >
+   
 
-<Header  style={{marginTop: 3}}>
-    <Left>
+<Header style={{marginTop: 3}}>
+<Left>
 
 <Button  type="clear" style={{paddingLeft:9}}
-        icon ={  <Ionicons name="ios-arrow-round-back"  size={30} color="black"     />}
+   icon ={<Ionicons name="ios-arrow-round-back"
+   size={30}
+   color="black"     />}
             
-        onPress={() => navigation.navigate("HomeScreen")} />  
+  onPress={() => navigation.navigate("SearchScreen")} />  
 
 </Left>
 
-<Title style={{marginTop:20}}>Spices, Sauces & Condiments</Title>
 
-
+<Body>
+<Title style={{width:300}} >Spices,Sauces & Condiments</Title>
+</Body>
 
 
 <Right>
-            <Button  style={styles.bitch}
+
+            <Button  style={styles.titch}
             type="clear"
             icon={
                <Icon
@@ -50,20 +183,36 @@ export default function Spices ({navigation}) {
 
 
 
+<View style={{ marginBottom:100, paddingBottom:80}}>
+  
+    <FlatList    numColumns={2}   
+
+data={data}
+ renderItem={renderItem}
+ renderItem={({ item }) => renderItem({ navigation, item })}
+
+keyExtractor={item=>item.id}
+ />
 
 
-
-
-
-
-
-<Text style={styles.rest}> Meat </Text>
+</View>
 
         </View>
 
         
     )
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -85,7 +234,7 @@ const styles = StyleSheet.create({
           marginTop: 20
       },
 
-      bitch: {
+      titch: {
           
           alignSelf: "flex-end",
           paddingRight:9,

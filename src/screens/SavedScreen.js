@@ -121,7 +121,11 @@ icon ={  <Feather name="shopping-bag"  size={17} color="white"     />}
 
 
 
-
+const mapDispatchToProps = (dispatch)=>{
+  return{
+    addItem
+  }
+}
 
 
 

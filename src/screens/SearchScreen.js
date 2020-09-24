@@ -107,10 +107,11 @@ export default function SearchScreen ({navigation}) {
 
 <View style={{paddingRight:10, paddingLeft:19}}>
 
+
 <Title>Fruits</Title>
 <View>
     <TouchableOpacity
-     onPress={() => navigation.navigate ( 'Cat', { screen: 'Fruits'}) }>
+     onPress={() => navigation.navigate ( "Fruits") }>
 
 <Image  style={{ width: 210, height: 270, alignItems: "center", borderRadius: 20, marginTop: 10, marginBottom:100}} source={pat}  />
 
@@ -125,7 +126,7 @@ export default function SearchScreen ({navigation}) {
 
 <Title>Vegetables</Title>
 <View>
-    <TouchableOpacity onPress={() =>navigation.navigate ('Cat', { screen: 'Vegetables'})} >
+    <TouchableOpacity onPress={() =>navigation.navigate ("Vegetables" ) } >
 
 <Image  style={{ width: 210, height: 270, alignItems: "center", borderRadius: 20, marginTop: 10, marginBottom:100}} source={veg}  />
 
@@ -139,7 +140,7 @@ export default function SearchScreen ({navigation}) {
 <View style={{paddingRight:15 }}>
 <Title>Meat & Seafood</Title>
 <View>
-    <TouchableOpacity onPress={() =>navigation.navigate ('Cat', { screen: 'Meat'})}>
+    <TouchableOpacity onPress={() =>navigation.navigate ( 'Meat')}>
 
 <Image  style={{ width: 210, height: 270, alignItems: "center", borderRadius: 20, marginTop: 10, marginBottom: 100}} source={mea}  />
 
