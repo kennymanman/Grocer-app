@@ -129,7 +129,7 @@ onPress={() => console.log('Pressed')}
     )
 
 
-export default function CartScreen ({navigation}) {
+ function CartScreen ({navigation}) {
 return (
 
 <View style={styles.container} >
@@ -250,3 +250,6 @@ const styles = StyleSheet.create({
 
 
 })
+
+
+export default CartScreen
