@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import React, {useState, useContext} from "react"
 import { View,
   Text,
   StyleSheet,
@@ -16,7 +16,7 @@ import { FontAwesome } from "@expo/vector-icons"
 import { Ionicons } from "@expo/vector-icons"
 import { Entypo } from "@expo/vector-icons"
 import { FAB } from "react-native-paper"
-
+import {CartContext} from "../screens/CartContext"
 
 
 
@@ -57,7 +57,8 @@ style={{top:0,
   marginRight:118 }}
 icon ={  <FontAwesome name="remove"
 size={17}
-color="white"     />}
+color="white"      />}
+onPress={()=> console.log('Pressed')}
 />
   
 </ImageBackground>          
@@ -129,8 +130,17 @@ onPress={() => console.log('Pressed')}
     )
 
 
- function CartScreen ({navigation}) {
+ function CartScreen ({navigation, ...props }) {
+
+
+const [cart, setCart] = useContext(CartContext)
+const totalPrice = cart.reduce((acc, currentCart)=> acc + currentCart.price, 0 )
+
+
 return (
+
+
+  
 
 <View style={styles.container} >
 <ImageBackground
@@ -181,6 +191,7 @@ textAlign:"left"}} >Cart</Title>
 <FlatList      
 data={data}
 renderItem={renderItem}
+renderItem={({ item }) => renderItem({  item })}
 keyExtractor={item=>item.id}
  />
 
@@ -199,7 +210,7 @@ keyExtractor={item=>item.id}
   paddingLeft: 32,
   textAlign:"left",
   paddingTop:1,
-  paddingBottom:10}}>Total: $600 </Title>
+  paddingBottom:10}}>Total: ${totalPrice} </Title>
 
 <Button                                          //Checkout Button
 title="Proceed to Checkout"
@@ -215,6 +226,9 @@ height:100, position:"relative", paddingLeft:13}}
 </ScrollView>
 </ImageBackground>
 </View>
+
+
+
 )
 }
 

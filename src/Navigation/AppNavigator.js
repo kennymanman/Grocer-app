@@ -1,4 +1,4 @@
-import React from "react";
+import React  from "react";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 //import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from "../screens/HomeScreen";
@@ -12,7 +12,7 @@ import SearchScreen from "../screens/SearchScreen";
  import { createDrawerNavigator, DrawerItemList,DrawerContent,DrawerContentScrollView, DrawerItem } from '@react-navigation/drawer';
  import { NavigationContainer } from '@react-navigation/native';
 import {View, SafeAreaView, ScrollView, Image} from "react-native"
-import {connect} from "react-redux"
+
  
 
 import Fruits from "../screens/Fruits"
@@ -36,7 +36,8 @@ import LogIn from "../screens/LogIn"
 
 import { Avatar, Title } from 'react-native-paper';
 import { Text } from 'react-native-elements';
-
+import { useContext, useState } from "react";
+import {CartContext} from "../screens/CartContext"
 
 
 
@@ -216,6 +217,7 @@ function SearchScreenStack() {
 
 const Tab = createMaterialBottomTabNavigator();
 
+
  function MainTabNavigator() {
   return (
 
@@ -320,7 +322,7 @@ const Drawer = createDrawerNavigator();
  export default function AppNavigator() {
 
 
-
+const [cart, setCart] = useContext(CartContext)
 
 
 

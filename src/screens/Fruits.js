@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useContext, useState} from "react"
 import { View,
   Text, 
   StyleSheet,
@@ -14,14 +14,14 @@ import { Feather } from '@expo/vector-icons';
 import {Header, Left, Right, Title, Body, Subtitle} from "native-base"
 import { Avatar,  Card,  Paragraph } from 'react-native-paper';
 import data from "./data"
-
+import {CartContext} from "../screens/CartContext"
 
 
 
 
 
   
-const Form = ({name, description, price}) => (
+const Form = ({name, description, price, addToCart}) => (
   
   
   <ImageBackground
@@ -103,7 +103,7 @@ imageStyle={{borderRadius:12}}
          paddingLeft: 130,
          }}
 icon ={  <Feather name="heart"  size={15} color="white"     />}
-
+onPress={addToCart}
 />
 
 </ImageBackground>
@@ -117,7 +117,7 @@ icon ={  <Feather name="heart"  size={15} color="white"     />}
 
 
 
-const renderItem= ({ item, navigation  })=> (  //had to put navigation here so i could also render navigation.
+const renderItem= ({ item, navigation, addToCart, props  })=> (  //had to put navigation here so i could also render navigation.
   <TouchableOpacity  onPress={() => navigation.navigate ("productpage") }>
     <Form
      name={item.name} 
@@ -139,7 +139,18 @@ const renderItem= ({ item, navigation  })=> (  //had to put navigation here so i
 
 
 
-export default function Fruits ({navigation }) {
+export default function Fruits ({navigation , ...props}) {
+
+  const[cart, setCart] = useContext(CartContext)
+
+  const addToCart = ()=> {
+
+    const fruits = {name: props.item, price: props.price, description: props.description}
+
+setCart(currentCart=>[...currentCart, fruits])
+
+
+  }
     return (
 
  <View >
@@ -188,8 +199,8 @@ export default function Fruits ({navigation }) {
     <FlatList    numColumns={2}   
 
 data={data}
- renderItem={renderItem}
- renderItem={({ item }) => renderItem({ navigation, item })}
+ renderItem={renderItem.props}
+ renderItem={({ item }) => renderItem({ navigation, item, addToCart, props })}
 
 keyExtractor={item=>item.id}
  />
