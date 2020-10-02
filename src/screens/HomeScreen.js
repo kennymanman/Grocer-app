@@ -6,49 +6,24 @@ import Icon from "react-native-vector-icons/FontAwesome5"
 import ban from "../img/ban.png"
 import fresh from "../img/fresh.png"
 import hus from "../img/hus.png"
-import pig from "../img/pig.png"
-import pat from "../img/pat.png"
-import veg from "../img/veg.png"
-import mea from "../img/mea.png"
-import brea from "../img/brea.png"
-import egg from "../img/egg.png"
-import cere from "../img/cere.png"
-import dri from "../img/dri.png"
-import al from "../img/al.png"
-import sna from "../img/sna.png"
-import spi from "../img/spi.png"
-import pan from "../img/pan.png"
-import hou from "../img/hou.png"
-import vit from "../img/vit.png"
-import ki from "../img/ki.png"
 import { Headline } from 'react-native-paper';
 //import Fruits from "../screens/Fruits"
 import { NavigationContainer } from '@react-navigation/native';
 import {Title} from "native-base"
-
-
-
-
-
-
-
+import { Avatar } from 'react-native-paper';
+import Animated from 'react-native-reanimated';
+import BottomSheet from 'reanimated-bottom-sheet';
 
 
 
 
 
 export default function HomeScreen ({ navigation }) {
+
+
     return (
 
-
 <View >
-
-
-
-
-
-
-
 
 <ScrollView showsHorizontalScrollIndicator={false} >
     
@@ -56,7 +31,18 @@ export default function HomeScreen ({ navigation }) {
              
             
 
-           <Button style={styles.bitch} 
+<View style={{height:50, width:30, marginTop:23}}>
+
+
+
+    <TouchableOpacity onPress={() => navigation.openDrawer()}>
+
+<Avatar.Image size={47} source={require('../img/kal.jpg')}  style={{marginLeft:279, marginBottom:60}} />
+    </TouchableOpacity>
+
+</View>
+
+           {/*<Button style={styles.bitch} 
             type="clear"
             icon={
                <Icon
@@ -66,21 +52,15 @@ export default function HomeScreen ({ navigation }) {
                 />
             }
             
-            onPress={() => navigation.openDrawer()} />
+        onPress={() => navigation.openDrawer()} />*/}
 
   
 
-            <Image  style={{ width: 325, height: 220, alignItems: "center", borderRadius: 20, marginTop: 20}} source={ban} />
+            <Image  style={{ width: 325, height: 220, alignItems: "center", borderRadius: 19, marginTop: 29}} source={ban} />
 
             <Image  style={{ width: 325, height: 350, alignItems: "center", borderRadius: 20, marginTop: 20}} source={hus} />
 
-
-            
-
-
             <Image  style={{ width: 325, height: 290, alignItems: "center", borderRadius: 20, marginTop: 20}} source={fresh} />
-
-
 
 
         </View>
@@ -88,10 +68,8 @@ export default function HomeScreen ({ navigation }) {
         
  </ScrollView>
 
-
-
-
  </View>
+
         
     )
 }
@@ -100,7 +78,7 @@ export default function HomeScreen ({ navigation }) {
 
 const styles = StyleSheet.create({
 
-    container: {
+    container:{
         flex: 1,
         padding: 24,
         backgroundColor: "#ffffff"

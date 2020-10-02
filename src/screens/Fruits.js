@@ -4,7 +4,8 @@ import { View,
   StyleSheet,
   FlatList,
   ImageBackground,
-  TouchableOpacity }
+  TouchableOpacity, 
+  Alert}
    from "react-native"
 import { Button } from "react-native-elements";
 import Icon from "react-native-vector-icons/FontAwesome5"
@@ -14,23 +15,39 @@ import { Feather } from '@expo/vector-icons';
 import {Header, Left, Right, Title, Body, Subtitle} from "native-base"
 import { Avatar,  Card,  Paragraph } from 'react-native-paper';
 import data from "./data"
-import {CartContext} from "../screens/CartContext"
+import {useCart, useSaved} from "../screens/CartContext"
 
 
 
 
 
-  
-const Form = ({name, description, price, addToCart}) => (
-  
+
+
+export default function Fruits ({navigation , ...props} ) {
+
+  //const addCart = useContext(useCart)
+  //const addSaved = useContext(useSaved)
+
+
+//const addToCart = ()=> {
+
+    //const fruits = {name: item.name, price: item.price, description: item.description}
+
+//setCart(currentCart=>[...currentCart, fruits])
+ //}
+
+
+
+
+
+
+
+//Structure of the product list.
+ const Form = ({name, description, price,  id}) => (
   
   <ImageBackground
 source={require("../img/sig.png")} 
 imageStyle={{borderRadius:12}}
-
-
-
-
 
   style={{
     height: 220,
@@ -70,12 +87,6 @@ imageStyle={{borderRadius:12}}
      color:"white"
      }}>${price}</Text>
 
-
-
-
-
-
-
   <Text style={{
     bottom:0,
      left:0,
@@ -87,14 +98,6 @@ imageStyle={{borderRadius:12}}
   
   {description}  </Text>
 
-
-
-
-
-  
-
-
-
 <Button type="clear"    
    style={
      {right:0,
@@ -103,7 +106,7 @@ imageStyle={{borderRadius:12}}
          paddingLeft: 130,
          }}
 icon ={  <Feather name="heart"  size={15} color="white"     />}
-onPress={addToCart}
+onPress={()=> (useCart)}
 />
 
 </ImageBackground>
@@ -117,91 +120,87 @@ onPress={addToCart}
 
 
 
-const renderItem= ({ item, navigation, addToCart, props  })=> (  //had to put navigation here so i could also render navigation.
-  <TouchableOpacity  onPress={() => navigation.navigate ("productpage") }>
-    <Form
-     name={item.name} 
-     description={item.description}
-     image={item.image}
-     price={item.price}
-    
-     />
-    </TouchableOpacity>
-     
-)
+//Testing alert
+const handlePress=(id)=>{
+  const click = data.find((cust) =>{
+
+    return cust.id === data.id;
+  })
+
+  Alert.alert("Buy Me", ` Name: ${data.name} \n Price: ${data.price}`)
+}
+
+//Testing Delete
+const deleteItem= (id)=>{
+  const click= data.find((cust)=> {
+
+    return cust.id === id;
+  })
+  data = data.filter((cust)=> {
+   return cust.id !== data.id
+  }) 
+}
+
+
+
+//Render Items.
+  const renderItem= ({ item, id ,useCart })=> (  //had to remove navigation here so i could also render navigation.
+    <TouchableOpacity   onPress={() => handlePress(id)}>
+      <Form
+       id={item.id}
+       name={item.name} 
+       description={item.description}
+       image={item.image}
+       price={item.price}
+      
+       />
+      </TouchableOpacity>
+       
+  )
+  
 
 
 
 
+return (
 
-
-
-
-
-
-export default function Fruits ({navigation , ...props}) {
-
-  const[cart, setCart] = useContext(CartContext)
-
-  const addToCart = ()=> {
-
-    const fruits = {name: props.item, price: props.price, description: props.description}
-
-setCart(currentCart=>[...currentCart, fruits])
-
-
-  }
-    return (
-
- <View >
-   
-
+<View >
 <Header style={{marginTop: 3}}>
 <Left>
-
 <Button  type="clear" style={{paddingLeft:9}}
    icon ={<Ionicons name="ios-arrow-round-back"
    size={30}
    color="black"     />}
             
   onPress={() => navigation.navigate("SearchScreen")} />  
-
 </Left>
-
-
 <Body>
 <Title >Fruits</Title>
 </Body>
-
-
 <Right>
-
-            <Button  style={styles.titch}
-            type="clear"
-            icon={
-               <Icon
-                name= "bars"
-                size= {20}
-                color= "black"
-                />
-            }
+<Button  style={styles.titch}
+type="clear"
+icon={
+<Icon
+name= "bars"
+size= {20}
+color= "black"
+/>
+}
             
-            onPress={() => navigation.openDrawer()} />    
+  onPress={() => navigation.openDrawer()} />    
 </Right>
 
 </Header>
 
 
 
-
 <View style={{ marginBottom:100, paddingBottom:80}}>
   
     <FlatList    numColumns={2}   
-
 data={data}
- renderItem={renderItem.props}
- renderItem={({ item }) => renderItem({ navigation, item, addToCart, props })}
-
+ renderItem={renderItem}
+ renderItem={({ item }) => renderItem({ navigation, item, useCart })}
 keyExtractor={item=>item.id}
  />
 

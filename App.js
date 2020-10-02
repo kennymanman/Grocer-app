@@ -2,8 +2,8 @@ import React from 'react';
 import { Provider as PaperProvider } from 'react-native-paper';
 import { NavigationContainer } from '@react-navigation/native';
 import MainTabNavigation from './src/Navigation/AppNavigator';
-//import DrawerContent from "./src/Navigation/DrawerContent"
 import {CartProvider} from "./src/screens/CartContext"
+
 
 
 export default function App() {
@@ -15,8 +15,8 @@ export default function App() {
 
 
 
-<CartProvider>
 
+<CartProvider>
     <PaperProvider>
       <NavigationContainer>
         
@@ -26,8 +26,9 @@ export default function App() {
 
       </NavigationContainer>
     </PaperProvider>
-    
     </CartProvider>
+    
+    
     
   );
 }

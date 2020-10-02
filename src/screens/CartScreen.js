@@ -21,6 +21,9 @@ import {CartContext} from "../screens/CartContext"
 
 
 
+
+
+
 //The Form is the structure in which i want to pass certain parameters into to be rendered.//
 const Form = ({name, quantity, price}) => (  
 <View style={{ flex: 1,

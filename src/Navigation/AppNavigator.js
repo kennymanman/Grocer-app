@@ -37,7 +37,7 @@ import LogIn from "../screens/LogIn"
 import { Avatar, Title } from 'react-native-paper';
 import { Text } from 'react-native-elements';
 import { useContext, useState } from "react";
-import {CartContext} from "../screens/CartContext"
+
 
 
 
@@ -322,7 +322,7 @@ const Drawer = createDrawerNavigator();
  export default function AppNavigator() {
 
 
-const [cart, setCart] = useContext(CartContext)
+
 
 
 

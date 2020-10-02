@@ -2,8 +2,8 @@ import hus from "../img/hus.png"
 import Image from "react-native"
 
 
-
-const data = [
+//Was formerly const but constant cant be changed, so used let.
+let data = [ 
    
    
    
@@ -69,7 +69,7 @@ const data = [
 
 
     {
-        id: "531159bg",
+        id: "531159hy",
         image: {hus},
         name: "Paw-Paw",
         price: 250,
@@ -81,6 +81,7 @@ const data = [
 
 
     {
+      id: "12222449000000",
       name:"Grape",
       price: 300,
       quantity: 5,
