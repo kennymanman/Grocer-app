@@ -37,7 +37,7 @@ export default function HomeScreen ({ navigation }) {
 
     <TouchableOpacity onPress={() => navigation.openDrawer()}>
 
-<Avatar.Image size={47} source={require('../img/kal.jpg')}  style={{marginLeft:279, marginBottom:60}} />
+<Avatar.Image size={47} source={require('../img/ral.jpg')}  style={{marginLeft:5, marginBottom:60}} />
     </TouchableOpacity>
 
 </View>

@@ -51,7 +51,7 @@ function CustomDrawerContent(props) {
 
 <View style={{height:50, width:30, marginTop:23}}>
 
-<Avatar.Image size={150} source={require('../img/die.jpg')}  style={{marginLeft:61, marginBottom:10}}/>
+<Avatar.Image size={150} source={require('../img/ral.jpg')}  style={{marginLeft:61, marginBottom:10}}/>
 
 <Title style={{width:224, marginLeft:57}}>Rakeem Micheal </Title>
   

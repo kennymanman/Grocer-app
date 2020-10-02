@@ -16,7 +16,7 @@ import { FontAwesome } from "@expo/vector-icons"
 import { Ionicons } from "@expo/vector-icons"
 import { Entypo } from "@expo/vector-icons"
 import { FAB } from "react-native-paper"
-import {CartContext} from "../screens/CartContext"
+//import {CartContext} from "../screens/CartContext"
 
 
 
@@ -33,7 +33,7 @@ flexDirection:'row',
 alignItems:'center'}}>
   
   
- <ImageBackground //The reason for use of imagebackground is just for design purpose,wanted something unique.
+ <ImageBackground 
   
 source={require('../img/sig.png')} 
 imageStyle={{borderRadius:12}} //For reshaping the image.
@@ -136,8 +136,8 @@ onPress={() => console.log('Pressed')}
  function CartScreen ({navigation, ...props }) {
 
 
-const [cart, setCart] = useContext(CartContext)
-const totalPrice = cart.reduce((acc, currentCart)=> acc + currentCart.price, 0 )
+{/*const [cart, setCart] = useContext(CartContext)
+const totalPrice = cart.reduce((acc, currentCart)=> acc + currentCart.price, 0 ) */}
 
 
 return (
@@ -213,7 +213,7 @@ keyExtractor={item=>item.id}
   paddingLeft: 32,
   textAlign:"left",
   paddingTop:1,
-  paddingBottom:10}}>Total: ${totalPrice} </Title>
+  paddingBottom:10}}>Total: $100 </Title>
 
 <Button                                          //Checkout Button
 title="Proceed to Checkout"
