@@ -30,19 +30,7 @@ export default function HomeScreen ({ navigation }) {
         <View style={styles.container} >
              
             
-
-<View style={{height:50, width:30, marginTop:23}}>
-
-
-
-    <TouchableOpacity onPress={() => navigation.openDrawer()}>
-
-<Avatar.Image size={47} source={require('../img/ral.jpg')}  style={{marginLeft:5, marginBottom:60}} />
-    </TouchableOpacity>
-
-</View>
-
-           {/*<Button style={styles.bitch} 
+           <Button style={styles.ditch} 
             type="clear"
             icon={
                <Icon
@@ -52,7 +40,7 @@ export default function HomeScreen ({ navigation }) {
                 />
             }
             
-        onPress={() => navigation.openDrawer()} />*/}
+        onPress={() => navigation.openDrawer()} />
 
   
 
@@ -94,7 +82,8 @@ const styles = StyleSheet.create({
           marginTop: 20
       },
 
-      bitch: {
-          alignItems: "flex-end"
+      ditch: {
+          alignItems: "flex-end",
+          marginTop: 20
       }
 })

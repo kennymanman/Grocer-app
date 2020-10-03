@@ -16,7 +16,7 @@ import { FontAwesome } from "@expo/vector-icons"
 import { Ionicons } from "@expo/vector-icons"
 import { Entypo } from "@expo/vector-icons"
 import { FAB } from "react-native-paper"
-//import {CartContext} from "../screens/CartContext"
+import {AddCartContext} from "./CartContext"
 
 
 
@@ -122,7 +122,7 @@ onPress={() => console.log('Pressed')}
   );
     
   
-  const renderItem= ({ item })=> (  
+  const renderItem= ({ item})=> (  
         <Form 
          name={item.name} 
          quantity={item.quantity}
@@ -134,6 +134,11 @@ onPress={() => console.log('Pressed')}
 
 
  function CartScreen ({navigation, ...props }) {
+
+
+  const { cart } = useContext(AddCartContext)
+ 
+
 
 
 {/*const [cart, setCart] = useContext(CartContext)
@@ -194,7 +199,7 @@ textAlign:"left"}} >Cart</Title>
 <FlatList      
 data={data}
 renderItem={renderItem}
-renderItem={({ item }) => renderItem({  item })}
+renderItem={({ item }) => renderItem({  item, newCart })}
 keyExtractor={item=>item.id}
  />
 

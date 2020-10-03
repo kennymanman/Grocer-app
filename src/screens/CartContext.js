@@ -1,30 +1,47 @@
 import React, {useContext, useState} from "react"
 
 
-const AddCartContext = React.createContext()
-const AddSavedContext = React.createContext()
-
-export function useCart(){
-    return useContext (AddCartContext)
-}
-
-export function useSaved(){
-    return useContext (AddSavedContext)
-
-}
+export const AddCartContext = React.createContext()
+export const AddSavedContext = React.createContext()
 
 
 export function CartProvider({children}) {
 
-
 const [cart, setCart] = useState([])
 const [saved, setSaved] = useState([])
+
+const cartContext = {
+    cart,
+    updateCart: item => {
+      // Problem is cart is a number, not an array
+      console.log(21, cart);
+      const updatedCart = [...cart];
+      updatedCart.push(item);
+      setCart(updatedCart);
+    }
+  };
+
+  console.log("cart", cart);
+
+
+  const savedContext = {
+    saved,
+    updateSaved: item => {
+      // Problem is cart is a number, not an array
+      console.log(21, saved);
+      const updatedSaved = [...saved];
+      updatedSaved.push(item);
+      setSaved(updatedSaved);
+    }
+  };
+
+  console.log("saved", saved);
 
 
 return (
 
-<AddCartContext.Provider value={[cart, setCart]}>
-    <AddSavedContext.Provider value={[saved, setSaved]}>
+<AddCartContext.Provider value={cartContext}>
+    <AddSavedContext.Provider value={savedContext}>
 
         {children}
 

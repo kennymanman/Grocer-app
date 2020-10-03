@@ -15,7 +15,12 @@ import { Feather } from '@expo/vector-icons';
 import {Header, Left, Right, Title, Body, Subtitle} from "native-base"
 import { Avatar,  Card,  Paragraph } from 'react-native-paper';
 import data from "./data"
-import {useCart, useSaved} from "../screens/CartContext"
+import {AddCartContext, AddSavedContext} from "../screens/CartContext"
+
+
+
+
+
 
 
 
@@ -25,17 +30,12 @@ import {useCart, useSaved} from "../screens/CartContext"
 
 export default function Fruits ({navigation , ...props} ) {
 
-  //const addCart = useContext(useCart)
-  //const addSaved = useContext(useSaved)
+  
+const {updateCart} = useContext(AddCartContext)
+const {updateSaved} = useContext(AddSavedContext)
 
-
-//const addToCart = ()=> {
-
-    //const fruits = {name: item.name, price: item.price, description: item.description}
-
-//setCart(currentCart=>[...currentCart, fruits])
- //}
-
+const useCart = updateCart
+const useSaved = updateSaved
 
 
 
@@ -98,16 +98,43 @@ imageStyle={{borderRadius:12}}
   
   {description}  </Text>
 
+
+
+
+<View style={{flexDirection:"row"}}>
+
+<Button type="clear"    
+   style={
+     {//right:0,
+       top:0,
+        marginTop:3,
+         paddingLeft: 8,
+         }}
+icon ={  <Feather name="heart"  size={15} color="white"     />}
+onPress={()=> updateSaved(name)}
+/>
+
+
 <Button type="clear"    
    style={
      {right:0,
        top:0,
-        marginTop:1,
-         paddingLeft: 130,
+        marginTop:3,
+         paddingLeft: 94,
          }}
-icon ={  <Feather name="heart"  size={15} color="white"     />}
-onPress={()=> (useCart)}
+icon ={  <Feather name="shopping-bag"  size={15} color="white"     />}
+onPress={()=> updateCart(name)}
 />
+
+
+
+
+
+
+</View>
+
+
+
 
 </ImageBackground>
 );
@@ -130,21 +157,11 @@ const handlePress=(id)=>{
   Alert.alert("Buy Me", ` Name: ${data.name} \n Price: ${data.price}`)
 }
 
-//Testing Delete
-const deleteItem= (id)=>{
-  const click= data.find((cust)=> {
-
-    return cust.id === id;
-  })
-  data = data.filter((cust)=> {
-   return cust.id !== data.id
-  }) 
-}
 
 
 
 //Render Items.
-  const renderItem= ({ item, id ,useCart })=> (  //had to remove navigation here so i could also render navigation.
+  const renderItem= ({ item, id, useCart, useSaved  })=> (  //had to remove navigation here so i could also render navigation.
     <TouchableOpacity   onPress={() => handlePress(id)}>
       <Form
        id={item.id}
@@ -200,7 +217,7 @@ color= "black"
     <FlatList    numColumns={2}   
 data={data}
  renderItem={renderItem}
- renderItem={({ item }) => renderItem({ navigation, item, useCart })}
+ renderItem={({ item }) => renderItem({ navigation, item, useCart, useSaved })}
 keyExtractor={item=>item.id}
  />
 
