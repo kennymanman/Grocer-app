@@ -11,10 +11,9 @@ const [cart, setCart] = useState([])
 const [saved, setSaved] = useState([])
 
 const cartContext = {
-    cart,
-    updateCart: item => {
+    cart, updateCart: item => {
       // Problem is cart is a number, not an array
-      console.log(21, cart);
+      console.log( cart);
       const updatedCart = [...cart];
       updatedCart.push(item);
       setCart(updatedCart);
@@ -28,7 +27,7 @@ const cartContext = {
     saved,
     updateSaved: item => {
       // Problem is cart is a number, not an array
-      console.log(21, saved);
+      console.log( saved);
       const updatedSaved = [...saved];
       updatedSaved.push(item);
       setSaved(updatedSaved);

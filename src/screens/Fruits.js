@@ -111,7 +111,7 @@ imageStyle={{borderRadius:12}}
          paddingLeft: 8,
          }}
 icon ={  <Feather name="heart"  size={15} color="white"     />}
-onPress={()=> updateSaved(name)}
+onPress={()=> updateSaved([name, price])}
 />
 
 
@@ -123,7 +123,7 @@ onPress={()=> updateSaved(name)}
          paddingLeft: 94,
          }}
 icon ={  <Feather name="shopping-bag"  size={15} color="white"     />}
-onPress={()=> updateCart(name)}
+onPress={()=> updateCart([name,price])}
 />
 
 
