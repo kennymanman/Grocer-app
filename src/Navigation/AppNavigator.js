@@ -33,6 +33,10 @@ import { createStackNavigator } from '@react-navigation/stack';
 import ProductPage from "../screens/ProductPage"
 import SignUp from "../screens/SignUp"
 import LogIn from "../screens/LogIn"
+import DeliveryScreen from "../screens/DeliveryScreen"
+import HelpScreen from "../screens/HelpScreen"
+import OrderScreen from "../screens/OrderScreen"
+import EditScreen from "../screens/EditScreen"
 
 import { Avatar, Title } from 'react-native-paper';
 import { Text } from 'react-native-elements';
@@ -86,7 +90,7 @@ function CustomDrawerContent(props) {
       color={"black"}
       size={size} />
    )}
-
+   onPress={() => navigation.navigate ( "DeliveryScreen") }
    />
 
 
@@ -186,22 +190,11 @@ function SearchScreenStack() {
       <Stack.Screen name="House" component={House} />
       <Stack.Screen name="Health" component={Health} />
       <Stack.Screen name="Kids" component={Kids} />
-      <Stack.Screen name="productpage" component={ProductPage} />
       <Stack.Screen name="SignUp" component={SignUp} />
       <Stack.Screen name="LogIn" component={LogIn} />
     </Stack.Navigator>
   );
 }
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -355,7 +348,13 @@ const Drawer = createDrawerNavigator();
 
         <Drawer.Screen name="Home"   component={MainTabNavigator} />
         
-        
+      <Drawer.Screen name="delivery info" component={DeliveryScreen} />
+      <Drawer.Screen name="need help?" component={HelpScreen} />
+      <Drawer.Screen name="My orders" component={OrderScreen} />
+      <Drawer.Screen name="Edit Profile" component={EditScreen} />
+
+      <Drawer.Screen name="Product page" component={ProductPage} />
+
         {/* <Drawer.Screen name="nat" component={SignUp} /> */}
         {/*<Drawer.Screen name="dat" component={LogIn} /> */}
       </Drawer.Navigator>

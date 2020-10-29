@@ -44,11 +44,11 @@ export default function HomeScreen ({ navigation }) {
 
   
 
-            <Image  style={{ width: 325, height: 220, alignItems: "center", borderRadius: 19, marginTop: 29}} source={ban} />
+            <Image  style={{ width: 325, height: 115, alignItems: "center", borderRadius: 19, marginTop: 18}} source={ban} />
 
-            <Image  style={{ width: 325, height: 350, alignItems: "center", borderRadius: 20, marginTop: 20}} source={hus} />
+            <Image  style={{ width: 325, height: 350, alignItems: "center", borderRadius: 20, marginTop: 15}} source={hus} />
 
-            <Image  style={{ width: 325, height: 290, alignItems: "center", borderRadius: 20, marginTop: 20}} source={fresh} />
+            <Image  style={{ width: 325, height: 290, alignItems: "center", borderRadius: 20, marginTop: 15}} source={fresh} />
 
 
         </View>

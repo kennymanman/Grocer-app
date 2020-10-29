@@ -15,7 +15,7 @@ import { Feather } from '@expo/vector-icons';
 import {Header, Left, Right, Title, Body, Subtitle} from "native-base"
 import { Avatar,  Card,  Paragraph } from 'react-native-paper';
 import data from "./data"
-import {AddCartContext, AddSavedContext} from "../screens/CartContext"
+import {AddCartContext, AddSavedContext, AddPagedContext} from "../screens/CartContext"
 
 
 
@@ -33,9 +33,11 @@ export default function Fruits ({navigation , ...props} ) {
   
 const {updateCart} = useContext(AddCartContext)
 const {updateSaved} = useContext(AddSavedContext)
+const {updatePaged} = useContext(AddPagedContext)
 
 const useCart = updateCart
 const useSaved = updateSaved
+const usePaged = updatePaged
 
 
 
@@ -43,10 +45,10 @@ const useSaved = updateSaved
 
 
 //Structure of the product list.
- const Form = ({name, description, price,  id}) => (
+ const Form = ({name, description, price,  id, image}) => (
   
   <ImageBackground
-source={require("../img/sig.png")} 
+source={image ? image: require("../img/sig.png")} 
 imageStyle={{borderRadius:12}}
 
   style={{
@@ -85,7 +87,7 @@ imageStyle={{borderRadius:12}}
     marginBottom:35,
      marginLeft:10,
      color:"white"
-     }}>${price}</Text>
+     }}>${price} {""}</Text>
 
   <Text style={{
     bottom:0,
@@ -96,7 +98,7 @@ imageStyle={{borderRadius:12}}
         fontSize:12,
          marginBottom:5}}>
   
-  {description}  </Text>
+  {description}{""}  </Text>
 
 
 
@@ -111,30 +113,23 @@ imageStyle={{borderRadius:12}}
          paddingLeft: 8,
          }}
 icon ={  <Feather name="heart"  size={15} color="white"     />}
-onPress={()=> updateSaved([name, price])}
+onPress={()=> updateSaved({name, price, description, image})}
 />
 
 
-<Button type="clear"    
-   style={
-     {right:0,
-       top:0,
+<Button
+ type="clear"    
+  style={
+  {right:0,
+    top:0,
         marginTop:3,
          paddingLeft: 94,
          }}
 icon ={  <Feather name="shopping-bag"  size={15} color="white"     />}
-onPress={()=> updateCart([name,price])}
+onPress={()=> updateCart({name, price, image})}
 />
 
-
-
-
-
-
 </View>
-
-
-
 
 </ImageBackground>
 );
@@ -147,22 +142,13 @@ onPress={()=> updateCart([name,price])}
 
 
 
-//Testing alert
-const handlePress=(id)=>{
-  const click = data.find((cust) =>{
-
-    return cust.id === data.id;
-  })
-
-  Alert.alert("Buy Me", ` Name: ${data.name} \n Price: ${data.price}`)
-}
 
 
 
 
 //Render Items.
   const renderItem= ({ item, id, useCart, useSaved  })=> (  //had to remove navigation here so i could also render navigation.
-    <TouchableOpacity   onPress={() => handlePress(id)}>
+  <TouchableOpacity    onPress={()=> navigation.navigate("ProductPage")}>
       <Form
        id={item.id}
        name={item.name} 

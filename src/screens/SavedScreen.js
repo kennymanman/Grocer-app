@@ -1,37 +1,76 @@
-import React from "react"
-import { View, Text, StyleSheet,ImageBackground, Image, FlatList} from "react-native"
+import React, {useContext} from "react"
+import { View, Text, StyleSheet,ImageBackground, Image, ScrollView} from "react-native"
 import { Button } from 'react-native-elements';
 import Icon from "react-native-vector-icons/FontAwesome5"
 import {Title, Left} from "native-base"
 import data from "./data"
 import { Feather } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
+import {AddSavedContext} from "./CartContext"
+import {AddCartContext} from "./CartContext"
 
 
 
+export default function SavedScreen ({navigation}) {
+
+
+ const {updateSaved} = useContext(AddSavedContext)
+    const { saved } = useContext(AddSavedContext)
+    
+const {updateCart} = useContext(AddCartContext)
+  const {cart} = useContext(AddCartContext)
 
 
 
+    return (
+
+
+ <View style={styles.container} >
+ 
+
+                 
+             <ImageBackground
+             
+             source={require('../img/die.jpg')}
+             imageStyle={{borderRadius:0}}
+          style={{
+            height: 621,
+            width: 375,
+            position: 'relative', // because it's parent
+            
+            top: 0,
+            
+          }}
+        >
+             
+            <Button style={styles.sitch} 
+            type="clear"
+            icon={
+               <Icon
+                name= "bars"
+                size= {20}
+                color= "black"
+                />
+            }
+            
+            onPress={() => navigation.openDrawer()} />    
+
+
+<Title
+style={{fontSize:35, color:"white", paddingLeft: 15, textAlign:"left"}}>Saved Items</Title>
+<Title style={{textAlign:"left", paddingLeft: 15, color:"white", fontSize:16}}>Keep track of groceries you love. </Title>
 
 
 
+<ScrollView>
+<View>
 
-const Form = ({name, description, price}) => (
-  
-  <View>
-
-
+{saved.map(({ name, image, price, description})=> (
 
   <ImageBackground
 
-  
-  
-
-  source={require('../img/yie.jpg')} 
+  source={image ? image: require("../img/sig.png")} 
      imageStyle={{borderRadius:12}}
-
-
-
 
 
   style={{
@@ -43,7 +82,7 @@ const Form = ({name, description, price}) => (
     marginRight:7,
     marginLeft:4,
     top: 2,
-    left: 2
+    left: 12
   }}
 >
 
@@ -81,143 +120,41 @@ icon ={  <FontAwesome name="remove"  size={17} color="white"     />}
 <Button type="clear"    
    style={{top:0, paddingLeft:150, right:0, marginTop:5}}
 icon ={  <Feather name="shopping-bag"  size={17} color="white"     />}
+onPress={()=> updateCart({name, price, image})}
 />
 
 
-
-
-
 </ImageBackground>
 
 
 
-
-</View>
-
-  );
-
-
-
-
-
-  const renderItem= ({ item })=> (
-    <Form
-     name={item.name} 
-     description={item.description}
-     image={item.image}
-     price={item.price}
-    
-     />
-    
-     
-)
-
-
-
-
-
-
-
-
-
-
-const mapDispatchToProps = (dispatch)=>{
-  return{
-    addItem
-  }
-}
-
-
-
-
-
-
-
-export default function SavedScreen ({navigation}) {
-    return (
-
-        <View style={styles.container} >
- 
-
-                 
-             <ImageBackground
-             
-             source={require('../img/die.jpg')}
-             imageStyle={{borderRadius:0}}
-          style={{
-            height: 621,
-            width: 375,
-            position: 'relative', // because it's parent
-            
-            top: 0,
-            
-          }}
-        >
-             
-             
-             
-             
-            
-
-
-
-
-
-            <Button style={styles.sitch} 
-            type="clear"
-            icon={
-               <Icon
-                name= "bars"
-                size= {20}
-                color= "black"
-                />
-            }
-            
-            onPress={() => navigation.openDrawer()} />    
-
-
-<Title
-style={{fontSize:35, color:"white", paddingLeft: 15, textAlign:"left"}}
-
->Saved Items</Title>
-
-
-
-
-
-
-<View style={{ marginBottom:20, paddingBottom:80, paddingLeft:20}}>
-  
-    <FlatList  style={{marginBottom:13}}  
-
-data={data}
- renderItem={renderItem}
-
-keyExtractor={item=>item.id}
- />
-
-
-  
-
-
-
-
+))}
 
 
 </View>
 
+</ScrollView>
 
 
 
+  </ImageBackground>
 
-
-
-</ImageBackground>
+  
         </View>
 
         
     )
 }
+
+
+
+
+
+
+
+
+
+
 
 
 

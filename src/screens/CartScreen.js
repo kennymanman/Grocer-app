@@ -1,5 +1,6 @@
 import React, {useContext} from 'react'
-import { View,
+import {
+   View,
     Text,
     StyleSheet,
     ImageBackground,
@@ -15,31 +16,24 @@ import { FontAwesome } from "@expo/vector-icons"
 import { Ionicons } from "@expo/vector-icons"
 import { Entypo } from "@expo/vector-icons"
 import { FAB } from "react-native-paper"
-//import {updateCart} from "../screens/Fruits"
 import {AddCartContext} from "./CartContext"
 
 
 
 
-
-
-
-export default function CartScreen() {
+export default function CartScreen({navigation}) {
 
   const {updateCart} = useContext(AddCartContext)
     const { cart } = useContext(AddCartContext)
-    //const useCart = updateCart
-
     
+const{removeFromCart}= useContext(AddCartContext)
+    
+return (
 
 
-    return (
 
+<View style={{flex: 1, padding: 0, backgroundColor: "#eaeaea"}} >
 
-
-<View style={{flex: 1,
-        padding: 0,
-        backgroundColor: "#eaeaea"}} >
 <ImageBackground
 source={require('../img/jie.jpg')}
 imageStyle={{borderRadius:0}}
@@ -65,7 +59,8 @@ size= {20}
 color= "black"
 />
 }
-onPress={() => navigation.openDrawer()} />    
+onPress={() => navigation.openDrawer()} />  
+
 
 <Title              //For the Main screen title
 style={{fontSize:35,
@@ -82,105 +77,108 @@ textAlign:"left"}} >Cart</Title>
   paddingBottom:10}}>Deliver to: 92 lanre awolokun Gbagada </Title>
 
 
-<ScrollView style={{marginBottom:2}}> 
-<View style={{ marginBottom:10,
- paddingBottom:18,
- paddingLeft:21}}></View>
+<ScrollView style={{marginBottom:2, marginTop:18}}> 
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <View style={{ flex: 1,
-            justifyContent: 'space-between',
+        <View style={{ 
+            flex: 1,
+            //justifyContent:"flex-start",
             padding: 3,
-            flexDirection:'row',
-            alignItems:'center'}}>
+            flexDirection:'column',
+            //alignItems:'center'
+
+            }}>
 
 
 
               
+            
+
+            {cart.map(({ name, count, image, price})=> (
+
+            <View style={{  flexDirection:"row"}}>
+
+
+
+<ImageBackground 
               
-              
-             <ImageBackground 
-              
-            source={require('../img/sig.png')} 
-            imageStyle={{borderRadius:12}} //For reshaping the image.
-              
+              source={image ? image: require("../img/sig.png")}
+              imageStyle={{borderRadius:12}} //For reshaping the image.
+                
+              style={{
+               height: 140,
+               width: 150,
+               position: 'relative', // because it's parent
+               marginBottom:15,
+               marginTop:5,
+               marginRight:1,
+               marginLeft:4,
+               //top: 2,
+               left: 2
+                  }}
+                >
+                
+                
+              <Button
+              type="clear"    
+              style={{ 
+                top:0,
+                paddingLeft:1,
+                left:0,
+                marginTop:2,
+                marginRight:118 }}
+              icon ={  <FontAwesome name="remove"
+              size={17}
+              color="white"      />}
+              onPress={()=> removeFromCart({name, price, image})}
+              /> 
+              </ImageBackground> 
+
+
+              <View style={{flexDirection:"column", paddingRight:90}}>
+            <Title 
             style={{
-             height: 140,
-             width: 150,
-             position: 'relative', // because it's parent
-             marginBottom:15,
-             marginTop:19,
-             marginRight:7,
-             marginLeft:4,
-             top: 2,
-             left: 2
-                }}
-              >
-              
-              
-            <Button type="clear"    
-            style={{top:0,
-              paddingLeft:1,
-              left:0,
-              marginTop:2,
-              marginRight:118 }}
-            icon ={  <FontAwesome name="remove"
-            size={17}
-            color="white"      />}
-            onPress={()=> console.log('Pressed')}
-            />
-              
-            </ImageBackground>          
-            
-            <View style={{flexDirection:"column"}}>
-            
-            <Title style={{marginBottom:3,   //For passing down the Name.
-              marginRight:105,
+              marginBottom:2,   //For passing down the Name.
+              marginRight:70,
+              marginTop:19,
               fontSize:20,
-              color:"white"}}> {cart.name}
+              color:"white"}}>
+                 {""} {name}
             </Title>
             
 
-            <Title style={{ marginRight:127,  //For passing down the Price.
+            
+
+            <Title style={{ 
+              marginRight:90,  //For passing down the Price.
               marginBottom:3,
+              marginTop:5,
               fontSize:17,
-              color:"white"}}>${cart.price}</Title>
+              color:"white"
+              }}>${price} {""}
+              </Title>
             
 
 
-            <Title  style={{ marginRight:100,  //For passing down the quantity needed.
+            <Title  style={{ marginRight:112,  //For passing down the quantity needed.
              marginBottom:10,
-             fontSize:13,
-             color:"white"}}>Quantity:4</Title>
+             marginTop:6,
+             marginLeft:20,
+             marginRight:85,
+             fontSize:12,
+             color:"white"}}>Quantity:{count}</Title>
             
             
-            
-            <View style={{flexDirection:"row", //Row for flex direction was used to align multiple items on the same line.
+            </View>
+
+
+
+
+
+            {/*<View style={{flexDirection:"row", //Row for flex direction was used to align multiple items on the same line.
              paddingLeft:12,
              marginBottom: 40}}>
             
@@ -210,8 +208,13 @@ textAlign:"left"}} >Cart</Title>
             />
             
             
+             </View>*/}
+
+
             </View>
-            </View>
+
+            ))}
+
             </View>
 
 

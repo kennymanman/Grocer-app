@@ -1,5 +1,5 @@
 import React from "react"
-import { View, StyleSheet, Image, ScrollView, TouchableOpacity } from "react-native"
+import { View, StyleSheet, Image, ScrollView, TouchableOpacity, ImageBackground } from "react-native"
 import { Button } from 'react-native-elements';
 import Icon from "react-native-vector-icons/FontAwesome5"
 import { Container, Header, Item, Input,  Text } from 'native-base';
@@ -22,6 +22,7 @@ import vit from "../img/vit.png"
 import ki from "../img/ki.png"
 
 import {Title} from "native-base"
+import { TextInput } from "react-native-paper";
 
 
 
@@ -46,14 +47,7 @@ export default function SearchScreen ({navigation}) {
 
         <View >
 
-
-
-
-
-
-             
-    
-        <Header  style={{marginTop:12  }} searchBar rounded   >
+        {/*<Header  style={{marginTop:12  }} searchBar rounded   >
 
           <Item >
             <Icon style={{paddingLeft:25, paddingRight:30}} size={15} name="search" />
@@ -74,7 +68,7 @@ export default function SearchScreen ({navigation}) {
             onPress={() => navigation.openDrawer()} />    
 
 
-        </Header>
+        </Header>*/}
 
 
 
@@ -86,34 +80,100 @@ export default function SearchScreen ({navigation}) {
 
         <ScrollView >
 
-        <View style={{marginTop: 5,  
+        <View style={{marginTop: 0,  
         backgroundColor: "white"}} >
 
   
 
 
+<ImageBackground 
+ source={require('../rmg/lane.jpg')}
+ style={{width:379, height: 200}}
+ imageStyle={{borderBottomRightRadius:70}}
+
+>
+
+<Button style={styles.sitch} 
+            type="clear"
+            icon={
+               <Icon
+                name= "bars"
+                size= {21}
+                color= "black"
+                />
+            }
+            
+            onPress={() => navigation.openDrawer()} />  
+
+
+
+
+<Title style={{textAlign:"left", fontSize:39, paddingTop:0, paddingLeft:13, paddingBottom:10, color:"white"}}>Categories</Title>
+
+
+<TextInput placeholder="     Search Groceries" 
+style={{marginTop:0, padding:12, borderBottomRightRadius:30, borderTopRightRadius:30, width:345, height:30, backgroundColor:"white"}}
+>
+</TextInput>
+
+<Feather name="search" size={19} color="gray" style={{position:"absolute", left:16, top:139}} />
+
+
+
+
+
+
+
       
-
-        <Image  style={{ width: 346, height: 150, alignItems: "center", borderRadius: 20, marginBottom:35, marginLeft: 12, marginRight:25}} source={sig} />
-
+</ImageBackground>
 
 
 
 
 
-        <ScrollView  horizontal={true} showsHorizontalScrollIndicator={false}>
+      {/*<Image  style={{ width: 346, height: 100, alignItems: "center", borderRadius: 20, marginBottom:35, marginLeft: 12, marginRight:25}} source={sig} />*/}
 
 
 
-<View style={{paddingRight:10, paddingLeft:19}}>
 
 
-<Title>Fruits</Title>
+
+
+
+
+     {/* <ImageBackground
+             
+             source={require('../rmg/gina.jpg')}
+             imageStyle={{borderRadius:0}}
+          style={{
+            height: 350,
+            width: 375,
+            position: 'relative', // because it's parent
+            marginTop:75,
+            top: 0,  
+          }}
+        >  */}
+
+
+
+
+
+
+<View style={{ marginTop:70}}>
+
+        <ScrollView  horizontal={true} showsHorizontalScrollIndicator={false} >
+
+
+
+<View style={{paddingRight:10, paddingLeft:19, paddingTop:10}}>
+
+
+<Title style={{color:"white"}}>Fruits</Title>
 <View>
     <TouchableOpacity
      onPress={() => navigation.navigate ( "Fruits") }>
 
-<Image  style={{ width: 189, height: 270, alignItems: "center", borderRadius: 20, marginTop: 10, marginBottom:100}} source={pat}  />
+<Image  style={{ width: 220, height: 270, alignItems: "center", borderRadius: 20, marginTop: 10, marginBottom:100}} source={pat}  />
 
 </TouchableOpacity>
 
@@ -122,13 +182,13 @@ export default function SearchScreen ({navigation}) {
 
 
 
-<View style={{paddingRight:10 }}>
+<View style={{paddingRight:10, paddingTop:10 }}>
 
-<Title>Vegetables</Title>
+<Title style={{color:"white"}}>Vegetables</Title>
 <View>
     <TouchableOpacity onPress={() =>navigation.navigate ("Vegetables" ) } >
 
-<Image  style={{ width: 189, height: 270, alignItems: "center", borderRadius: 20, marginTop: 10, marginBottom:100}} source={veg}  />
+<Image  style={{ width: 220, height: 270, alignItems: "center", borderRadius: 20, marginTop: 10, marginBottom:100}} source={veg}  />
 
 </TouchableOpacity>
 
@@ -137,12 +197,12 @@ export default function SearchScreen ({navigation}) {
 
 
 
-<View style={{paddingRight:15 }}>
-<Title>Meat & Seafood</Title>
+<View style={{paddingRight:15, paddingTop:10 }}>
+<Title style={{color:"white"}}>Meat & Seafood</Title>
 <View>
     <TouchableOpacity onPress={() =>navigation.navigate ( 'Meat')}>
 
-<Image  style={{ width: 189, height: 270, alignItems: "center", borderRadius: 20, marginTop: 10, marginBottom: 100}} source={mea}  />
+<Image  style={{ width: 220, height: 270, alignItems: "center", borderRadius: 20, marginTop: 10, marginBottom: 100}} source={mea}  />
 
 </TouchableOpacity>
 
@@ -151,12 +211,12 @@ export default function SearchScreen ({navigation}) {
 
 
 
-<View style={{paddingRight:15 }}>
-<Title>Bread & Bakery</Title>
+<View style={{paddingRight:15, paddingTop:10 }}>
+<Title  style={{color:"white"}}>Bread & Bakery</Title>
 <View>
     <TouchableOpacity onPress={() =>navigation.navigate ('Bread')}>
 
-<Image  style={{ width: 189, height: 270, alignItems: "center", borderRadius: 20, marginTop: 10 , marginBottom: 100}} source={brea}  />
+<Image  style={{ width: 220, height: 270, alignItems: "center", borderRadius: 20, marginTop: 10 , marginBottom: 100}} source={brea}  />
 
 </TouchableOpacity>
 
@@ -165,12 +225,12 @@ export default function SearchScreen ({navigation}) {
 
 
 
-<View style={{paddingRight:15 }}>
-<Title>Dairy & Eggs</Title>
+<View style={{paddingRight:15, paddingTop:10 }}>
+<Title  style={{color:"white"}}>Dairy & Eggs</Title>
 <View>
     <TouchableOpacity onPress={() =>navigation.navigate ('Eggs')}>
 
-<Image  style={{ width: 210, height: 270, alignItems: "center", borderRadius: 20, marginTop: 10, marginBottom: 100}} source={egg}  />
+<Image  style={{ width: 220, height: 270, alignItems: "center", borderRadius: 20, marginTop: 10, marginBottom: 100}} source={egg}  />
 
 </TouchableOpacity>
 
@@ -179,12 +239,12 @@ export default function SearchScreen ({navigation}) {
 
 
 
-<View style={{paddingRight:15 }}>
-<Title>Cereals</Title>
+<View style={{paddingRight:15, paddingTop:10 }}>
+<Title  style={{color:"white"}}>Cereals</Title>
 <View>
     <TouchableOpacity onPress={() =>navigation.navigate ('Cereal')}>
 
-<Image  style={{ width: 210, height: 270, alignItems: "center", borderRadius: 20, marginTop: 10, marginBottom: 100}} source={cere}  />
+<Image  style={{ width: 220, height: 270, alignItems: "center", borderRadius: 20, marginTop: 10, marginBottom: 100}} source={cere}  />
 
 </TouchableOpacity>
 
@@ -193,12 +253,12 @@ export default function SearchScreen ({navigation}) {
 
 
 
-<View style={{paddingRight:15 }}>
-<Title>Drinks</Title>
+<View style={{paddingRight:15, paddingTop:10 }}>
+<Title  style={{color:"white"}}>Drinks</Title>
 <View>
     <TouchableOpacity onPress={() =>navigation.navigate ('Drinks')}>
 
-<Image  style={{ width: 210, height: 270, alignItems: "center", borderRadius: 20, marginTop: 10, marginBottom: 100}} source={dri}  />
+<Image  style={{ width: 220, height: 270, alignItems: "center", borderRadius: 20, marginTop: 10, marginBottom: 100}} source={dri}  />
 
 </TouchableOpacity>
 
@@ -208,12 +268,12 @@ export default function SearchScreen ({navigation}) {
 
 
 
-<View style={{paddingRight:15 }}>
-<Title>Alcohol</Title>
+<View style={{paddingRight:15, paddingTop:10 }}>
+<Title  style={{color:"white"}}>Alcohol</Title>
 <View>
     <TouchableOpacity onPress={() =>navigation.navigate ('Alcohol')}>
 
-<Image  style={{ width: 210, height: 270, alignItems: "center", borderRadius: 20, marginTop: 10, marginBottom: 100}} source={al}  />
+<Image  style={{ width: 220, height: 270, alignItems: "center", borderRadius: 20, marginTop: 10, marginBottom: 100}} source={al}  />
 
 </TouchableOpacity>
 
@@ -223,12 +283,12 @@ export default function SearchScreen ({navigation}) {
 
 
 
-<View style={{paddingRight:15 }}>
-<Title>Snacks</Title>
+<View style={{paddingRight:15, paddingTop:10 }}>
+<Title  style={{color:"white"}}>Snacks</Title>
 <View>
     <TouchableOpacity onPress={() =>navigation.navigate ('Snacks')}>
 
-<Image  style={{ width: 210, height: 270, alignItems: "center", borderRadius: 20, marginTop: 10, marginBottom: 100}} source={sna}  />
+<Image  style={{ width: 220, height: 270, alignItems: "center", borderRadius: 20, marginTop: 10, marginBottom: 100}} source={sna}  />
 
 </TouchableOpacity>
 
@@ -238,12 +298,12 @@ export default function SearchScreen ({navigation}) {
 
 
 
-<View style={{paddingRight:15 }}>
-<Title>Spices,Sauces & Condiments</Title>
+<View style={{paddingRight:15, paddingTop:10 }}>
+<Title  style={{color:"white"}}>Spices,Sauces & Condiments</Title>
 <View>
     <TouchableOpacity onPress={() =>navigation.navigate ('Spices')}>
 
-<Image  style={{ width: 210, height: 270, alignItems: "center", borderRadius: 20, marginTop: 10, marginBottom: 100}} source={spi}  />
+<Image  style={{ width: 220, height: 270, alignItems: "center", borderRadius: 20, marginTop: 10, marginBottom: 100}} source={spi}  />
 
 </TouchableOpacity>
 
@@ -253,12 +313,12 @@ export default function SearchScreen ({navigation}) {
 
 
 
-<View style={{paddingRight:15 }}>
-<Title>Pantry,Canned & Dried items</Title>
+<View style={{paddingRight:15, paddingTop:10 }}>
+<Title  style={{color:"white"}}>Pantry,Canned & Dried items</Title>
 <View>
     <TouchableOpacity onPress={() =>navigation.navigate ('Pantry')}>
 
-<Image  style={{ width: 210, height: 270, alignItems: "center", borderRadius: 20, marginTop: 10, marginBottom: 100}} source={pan}  />
+<Image  style={{ width: 220, height: 270, alignItems: "center", borderRadius: 20, marginTop: 10, marginBottom: 100}} source={pan}  />
 
 </TouchableOpacity>
 
@@ -268,12 +328,12 @@ export default function SearchScreen ({navigation}) {
 
 
 
-<View style={{paddingRight:15 }}>
-<Title>Household essentials</Title>
+<View style={{paddingRight:15, paddingTop:10 }}>
+<Title  style={{color:"white"}}>Household essentials</Title>
 <View>
     <TouchableOpacity onPress={() =>navigation.navigate ('House')}>
 
-<Image  style={{ width: 210, height: 270, alignItems: "center", borderRadius: 20, marginTop: 10, marginBottom: 100}} source={hou}  />
+<Image  style={{ width: 220, height: 270, alignItems: "center", borderRadius: 20, marginTop: 10, marginBottom: 100}} source={hou}  />
 
 </TouchableOpacity>
 
@@ -284,12 +344,12 @@ export default function SearchScreen ({navigation}) {
 
 
 
-<View style={{paddingRight:15 }}>
-<Title>Health & Nutrition</Title>
+<View style={{paddingRight:15, paddingTop:10 }}>
+<Title  style={{color:"white"}}>Health & Nutrition</Title>
 <View>
     <TouchableOpacity onPress={() =>navigation.navigate ('Health')}>
 
-<Image  style={{ width: 210, height: 270, alignItems: "center", borderRadius: 20, marginTop: 10, marginBottom: 100}} source={vit}  />
+<Image  style={{ width: 220, height: 270, alignItems: "center", borderRadius: 20, marginTop: 10, marginBottom: 100}} source={vit}  />
 
 </TouchableOpacity>
 
@@ -299,23 +359,17 @@ export default function SearchScreen ({navigation}) {
 
 
 
-<View style={{paddingRight:15 }}>
-<Title>Kids & Babies</Title>
+<View style={{paddingRight:15, paddingTop:10 }}>
+<Title  style={{color:"white"}}>Kids & Babies</Title>
 <View>
     <TouchableOpacity onPress={() =>navigation.navigate ('Kids')}>
 
-<Image  style={{ width: 210, height: 270, alignItems: "center", borderRadius: 20, marginTop: 10, marginBottom: 100}} source={ki}  />
+<Image  style={{ width: 220, height: 270, alignItems: "center", borderRadius: 20, marginTop: 10, marginBottom: 100}} source={ki}  />
 
 </TouchableOpacity>
 
 </View>
 </View>
-
-
-
-
-
-
 
 
 
@@ -323,6 +377,10 @@ export default function SearchScreen ({navigation}) {
 
 
 </ScrollView>
+</View>
+
+{/*</ImageBackground>*/}
+
 
 
 
@@ -378,9 +436,10 @@ const styles = StyleSheet.create({
           marginTop: 20
       },
 
-      bitch: {
+      sitch: {
           alignItems: "flex-end",
           paddingLeft: 8,
-          paddingTop: 12
+          paddingRight:19,
+          paddingTop: 29
       }
 })
