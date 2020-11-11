@@ -20,6 +20,7 @@ import pan from "../img/pan.png"
 import hou from "../img/hou.png"
 import vit from "../img/vit.png"
 import ki from "../img/ki.png"
+import Deals from "../rmg/Deals.png"
 
 import {Title} from "native-base"
 import { TextInput } from "react-native-paper";
@@ -87,7 +88,7 @@ export default function SearchScreen ({navigation}) {
 
 
 <ImageBackground 
- source={require('../rmg/lane.jpg')}
+ source={require('../rmg/sag.jpg')}
  style={{width:379, height: 200}}
  imageStyle={{borderBottomRightRadius:70}}
 
@@ -99,7 +100,7 @@ export default function SearchScreen ({navigation}) {
                <Icon
                 name= "bars"
                 size= {21}
-                color= "black"
+                color= "white"
                 />
             }
             
@@ -116,7 +117,7 @@ style={{marginTop:0, padding:12, borderBottomRightRadius:30, borderTopRightRadiu
 >
 </TextInput>
 
-<Feather name="search" size={19} color="gray" style={{position:"absolute", left:16, top:139}} />
+<Feather name="search" size={19} color="gray" style={{position:"absolute", left:5, top:139}} />
 
 
 
@@ -168,12 +169,12 @@ style={{marginTop:0, padding:12, borderBottomRightRadius:30, borderTopRightRadiu
 <View style={{paddingRight:10, paddingLeft:19, paddingTop:10}}>
 
 
-<Title style={{color:"white"}}>Fruits</Title>
+<Title style={{color:"black"}}>Deals & Offers</Title>
 <View>
     <TouchableOpacity
-     onPress={() => navigation.navigate ( "Fruits") }>
+     onPress={() => navigation.navigate ( "DealsScreen") }>
 
-<Image  style={{ width: 220, height: 270, alignItems: "center", borderRadius: 20, marginTop: 10, marginBottom:100}} source={pat}  />
+<Image  style={{ width: 220, height: 270, alignItems: "center", borderRadius: 20, marginTop: 10, marginBottom:100}} source={Deals}  />
 
 </TouchableOpacity>
 
@@ -184,7 +185,31 @@ style={{marginTop:0, padding:12, borderBottomRightRadius:30, borderTopRightRadiu
 
 <View style={{paddingRight:10, paddingTop:10 }}>
 
-<Title style={{color:"white"}}>Vegetables</Title>
+<Title style={{color:"black"}}>Fruits</Title>
+<View>
+    <TouchableOpacity onPress={() =>navigation.navigate ("Fruits" ) } >
+
+<Image  style={{ width: 220, height: 270, alignItems: "center", borderRadius: 20, marginTop: 10, marginBottom:100}} source={pat}  />
+
+</TouchableOpacity>
+
+</View>
+</View>
+
+
+
+
+
+
+
+
+
+
+
+
+<View style={{paddingRight:10, paddingTop:10 }}>
+
+<Title style={{color:"black"}}>Vegetables</Title>
 <View>
     <TouchableOpacity onPress={() =>navigation.navigate ("Vegetables" ) } >
 
@@ -198,7 +223,7 @@ style={{marginTop:0, padding:12, borderBottomRightRadius:30, borderTopRightRadiu
 
 
 <View style={{paddingRight:15, paddingTop:10 }}>
-<Title style={{color:"white"}}>Meat & Seafood</Title>
+<Title style={{color:"black"}}>Meat & Seafood</Title>
 <View>
     <TouchableOpacity onPress={() =>navigation.navigate ( 'Meat')}>
 
@@ -212,7 +237,7 @@ style={{marginTop:0, padding:12, borderBottomRightRadius:30, borderTopRightRadiu
 
 
 <View style={{paddingRight:15, paddingTop:10 }}>
-<Title  style={{color:"white"}}>Bread & Bakery</Title>
+<Title  style={{color:"black"}}>Bread & Bakery</Title>
 <View>
     <TouchableOpacity onPress={() =>navigation.navigate ('Bread')}>
 
@@ -226,7 +251,7 @@ style={{marginTop:0, padding:12, borderBottomRightRadius:30, borderTopRightRadiu
 
 
 <View style={{paddingRight:15, paddingTop:10 }}>
-<Title  style={{color:"white"}}>Dairy & Eggs</Title>
+<Title  style={{color:"black"}}>Dairy & Eggs</Title>
 <View>
     <TouchableOpacity onPress={() =>navigation.navigate ('Eggs')}>
 
@@ -240,7 +265,7 @@ style={{marginTop:0, padding:12, borderBottomRightRadius:30, borderTopRightRadiu
 
 
 <View style={{paddingRight:15, paddingTop:10 }}>
-<Title  style={{color:"white"}}>Cereals</Title>
+<Title  style={{color:"black"}}>Cereals</Title>
 <View>
     <TouchableOpacity onPress={() =>navigation.navigate ('Cereal')}>
 
@@ -254,7 +279,7 @@ style={{marginTop:0, padding:12, borderBottomRightRadius:30, borderTopRightRadiu
 
 
 <View style={{paddingRight:15, paddingTop:10 }}>
-<Title  style={{color:"white"}}>Drinks</Title>
+<Title  style={{color:"black"}}>Drinks</Title>
 <View>
     <TouchableOpacity onPress={() =>navigation.navigate ('Drinks')}>
 
@@ -269,7 +294,7 @@ style={{marginTop:0, padding:12, borderBottomRightRadius:30, borderTopRightRadiu
 
 
 <View style={{paddingRight:15, paddingTop:10 }}>
-<Title  style={{color:"white"}}>Alcohol</Title>
+<Title  style={{color:"black"}}>Alcohol</Title>
 <View>
     <TouchableOpacity onPress={() =>navigation.navigate ('Alcohol')}>
 
@@ -284,7 +309,7 @@ style={{marginTop:0, padding:12, borderBottomRightRadius:30, borderTopRightRadiu
 
 
 <View style={{paddingRight:15, paddingTop:10 }}>
-<Title  style={{color:"white"}}>Snacks</Title>
+<Title  style={{color:"black"}}>Snacks</Title>
 <View>
     <TouchableOpacity onPress={() =>navigation.navigate ('Snacks')}>
 
@@ -299,7 +324,7 @@ style={{marginTop:0, padding:12, borderBottomRightRadius:30, borderTopRightRadiu
 
 
 <View style={{paddingRight:15, paddingTop:10 }}>
-<Title  style={{color:"white"}}>Spices,Sauces & Condiments</Title>
+<Title  style={{color:"black"}}>Spices,Sauces & Condiments</Title>
 <View>
     <TouchableOpacity onPress={() =>navigation.navigate ('Spices')}>
 
@@ -314,7 +339,7 @@ style={{marginTop:0, padding:12, borderBottomRightRadius:30, borderTopRightRadiu
 
 
 <View style={{paddingRight:15, paddingTop:10 }}>
-<Title  style={{color:"white"}}>Pantry,Canned & Dried items</Title>
+<Title  style={{color:"black"}}>Pantry,Canned & Dried items</Title>
 <View>
     <TouchableOpacity onPress={() =>navigation.navigate ('Pantry')}>
 
@@ -329,7 +354,7 @@ style={{marginTop:0, padding:12, borderBottomRightRadius:30, borderTopRightRadiu
 
 
 <View style={{paddingRight:15, paddingTop:10 }}>
-<Title  style={{color:"white"}}>Household essentials</Title>
+<Title  style={{color:"black"}}>Household essentials</Title>
 <View>
     <TouchableOpacity onPress={() =>navigation.navigate ('House')}>
 
@@ -345,7 +370,7 @@ style={{marginTop:0, padding:12, borderBottomRightRadius:30, borderTopRightRadiu
 
 
 <View style={{paddingRight:15, paddingTop:10 }}>
-<Title  style={{color:"white"}}>Health & Nutrition</Title>
+<Title  style={{color:"black"}}>Health & Nutrition</Title>
 <View>
     <TouchableOpacity onPress={() =>navigation.navigate ('Health')}>
 
@@ -360,7 +385,7 @@ style={{marginTop:0, padding:12, borderBottomRightRadius:30, borderTopRightRadiu
 
 
 <View style={{paddingRight:15, paddingTop:10 }}>
-<Title  style={{color:"white"}}>Kids & Babies</Title>
+<Title  style={{color:"black"}}>Kids & Babies</Title>
 <View>
     <TouchableOpacity onPress={() =>navigation.navigate ('Kids')}>
 

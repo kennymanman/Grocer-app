@@ -6,6 +6,7 @@ import {
     ImageBackground,
     Image,
     FlatList,
+    TouchableOpacity,
     ScrollView}
     from "react-native"
 import { Button } from "react-native-elements"
@@ -17,6 +18,7 @@ import { Ionicons } from "@expo/vector-icons"
 import { Entypo } from "@expo/vector-icons"
 import { FAB } from "react-native-paper"
 import {AddCartContext} from "./CartContext"
+import DropdownMenu from 'react-native-dropdownmenus';
 
 
 
@@ -27,6 +29,9 @@ export default function CartScreen({navigation}) {
     const { cart } = useContext(AddCartContext)
     
 const{removeFromCart}= useContext(AddCartContext)
+
+
+let conditionData = [["select quantity","1", "2", "3","4","5","6","7","8","9","10","11","12"]];
     
 return (
 
@@ -74,7 +79,23 @@ textAlign:"left"}} >Cart</Title>
   paddingLeft: 32,
   textAlign:"left",
   paddingTop:12,
-  paddingBottom:10}}>Deliver to: 92 lanre awolokun Gbagada </Title>
+paddingBottom:10}}>Deliver to: 92 lanre awolokun Gbagada </Title>
+
+
+
+<TouchableOpacity onPress={() => navigation.navigate ( "DeliveryScreen") }>
+
+<Text style={{
+ paddingLeft:32,
+ color:"blue",
+ fontSize:12
+
+}}>Change Address</Text>
+</TouchableOpacity>
+
+
+
+
 
 
 <ScrollView style={{marginBottom:2, marginTop:18}}> 
@@ -99,7 +120,7 @@ textAlign:"left"}} >Cart</Title>
 
             {cart.map(({ name, count, image, price})=> (
 
-            <View style={{  flexDirection:"row"}}>
+            <View style={{  flexDirection:"row"}}  key={name}>   
 
 
 

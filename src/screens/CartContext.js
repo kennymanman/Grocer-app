@@ -5,28 +5,32 @@ export const AddSavedContext = React.createContext()
 export const AddPagedContext = React.createContext()
 
 export function CartProvider({children}) {
-const [cart, setCart] = useState([])
-const [saved, setSaved] = useState([])
-const [paged, setPaged] = useState([])
+ const [cart, setCart] = useState([])
+ const [saved, setSaved] = useState([])
+ const [paged, setPaged] = useState([])
 
 
 
 
 const cartContext = {
-    cart,
-    updateCart: ({name, price, image}) => {
 
-      
+   cart,                                              //To Add Item to Cart
+   updateCart: ({name, price, image}) => {
+   const updatedCart = [...cart]
+   updatedCart.push({ name, count:1, price, image })
+   setCart(updatedCart)
 
-      const updatedCart = [...cart]
-      updatedCart.push({ name, count:1, price, image })
-      setCart(updatedCart)
     },
-    removeFromCart: ({ name, price, image })=> {
+
+   removeFromCart: ({ name })=> {
+
+    const updatedCart = cart.filter(item => item.name !== name)
+    setCart(updatedCart);
   }
   };
 
   
+
 
 
   const savedContext = {
@@ -38,7 +42,12 @@ const cartContext = {
       updatedSaved.push({name, price, image, description})
       setSaved(updatedSaved)
     },
-    removeFromSaved: ({name, price, image, description})=>{}
+
+    removeFromSaved: ({name })=>{
+
+    const updatedSaved = saved.filter(item => item.name !== name)
+    setSaved(updatedSaved);  
+    }
   };
 
   

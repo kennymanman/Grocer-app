@@ -15,7 +15,7 @@ import { Feather } from '@expo/vector-icons';
 import {Header, Left, Right, Title, Body, Subtitle} from "native-base"
 import { Avatar,  Card,  Paragraph } from 'react-native-paper';
 import data from "./data"
-import {AddCartContext, AddSavedContext, AddPagedContext} from "../screens/CartContext"
+import {AddCartContext, AddSavedContext} from "../screens/CartContext"
 
 
 
@@ -28,16 +28,16 @@ import {AddCartContext, AddSavedContext, AddPagedContext} from "../screens/CartC
 
 
 
-export default function Fruits ({navigation , ...props} ) {
+export default function Fruits ({navigation , ...props}) {
 
   
 const {updateCart} = useContext(AddCartContext)
 const {updateSaved} = useContext(AddSavedContext)
-const {updatePaged} = useContext(AddPagedContext)
+
 
 const useCart = updateCart
 const useSaved = updateSaved
-const usePaged = updatePaged
+
 
 
 
@@ -48,7 +48,7 @@ const usePaged = updatePaged
  const Form = ({name, description, price,  id, image}) => (
   
   <ImageBackground
-source={image ? image: require("../img/sig.png")} 
+source={image ? image: require("../img/sig.png")}  //Background Image
 imageStyle={{borderRadius:12}}
 
   style={{
@@ -148,7 +148,7 @@ onPress={()=> updateCart({name, price, image})}
 
 //Render Items.
   const renderItem= ({ item, id, useCart, useSaved  })=> (  //had to remove navigation here so i could also render navigation.
-  <TouchableOpacity    onPress={()=> navigation.navigate("ProductPage")}>
+  <TouchableOpacity    onPress={()=> navigation.navigate("ProductPage" , { name: item.name , price: item.price, image: item.image})}>
       <Form
        id={item.id}
        name={item.name} 

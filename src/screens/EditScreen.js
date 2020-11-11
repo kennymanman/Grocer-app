@@ -11,7 +11,7 @@ export default function EditScreen({navigation}) {
   return (
     <View>
 
-<ScrollView style={{marginBottom:45}}>
+<ScrollView >
 
 
 <Button  type="clear" style={{paddingLeft:15, alignSelf:"flex-start", paddingTop:35}}
@@ -21,7 +21,7 @@ export default function EditScreen({navigation}) {
             onPress={() => navigation.navigate("HomeScreen")} />  
 
 
-      <Title style={{textAlign:"left", fontSize:30, color:"black", paddingLeft:19, paddingTop:12}} >Edit My Profile</Title>
+      <Title style={{textAlign:"left", fontSize:25, color:"black", paddingLeft:19, paddingTop:12}} >Edit My Profile</Title>
 
 
 
@@ -29,11 +29,8 @@ export default function EditScreen({navigation}) {
 
 
 
-      <Avatar rounded size={200} marginLeft={80} marginTop={20}
-  source={{
-    uri:
-      'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
-  }}
+      <Avatar rounded size={170} marginLeft={93} marginTop={20}
+       icon={{name: 'user', type: 'font-awesome'}}
   >
   <Accessory size={38} />
 </Avatar>
@@ -45,9 +42,9 @@ export default function EditScreen({navigation}) {
           <Card transparent style={{paddingTop:30}}>
             <CardItem>
               <Body>
-                <Title style={{textAlign:"left"}}>
+                <Text style={{textAlign:"left", fontSize:16}}>
                  First Name
-                </Title>
+                </Text>
 
                 <Item success>
             <Input  placeholder=''/>
@@ -62,9 +59,9 @@ export default function EditScreen({navigation}) {
           <Card transparent style={{paddingTop:30}}>
             <CardItem>
               <Body>
-                <Title style={{textAlign:"left"}}>
+                <Text style={{textAlign:"left", fontSize:16}}>
                  Last Name
-                </Title>
+                </Text>
 
                 <Item success>
             <Input  placeholder=''/>
@@ -74,14 +71,16 @@ export default function EditScreen({navigation}) {
               </Body>
             </CardItem>
           </Card>
+
+
 
 
           <Card transparent style={{paddingTop:30}}>
             <CardItem>
               <Body>
-                <Title style={{textAlign:"left"}}>
+                <Text style={{textAlign:"left", fontSize:16}}>
                  Phone Number
-                </Title>
+                </Text>
 
                 <Item success>
             <Input  placeholder=''/>
@@ -94,12 +93,13 @@ export default function EditScreen({navigation}) {
 
 
 
-          <Card transparent style={{paddingTop:20, marginBottom:60}}>
+
+          <Card transparent style={{paddingTop:20, marginBottom:50}}>
             <CardItem>
               <Body>
-                <Title style={{textAlign:"left"}}>
+                <Text style={{textAlign:"left", fontSize:16}}>
                  Email Address
-                </Title>
+                </Text>
 
                 <Item success>
             <Input  placeholder=''/>
@@ -111,6 +111,19 @@ export default function EditScreen({navigation}) {
           </Card>
 
 
+
+          <ImageBackground 
+        
+        source={require("../rmg/tyr.jpg")} 
+        style={{
+            height: 50,
+            width: 390,
+            position: 'relative', // because it's parent
+            top: 0,
+            
+          }}
+        
+        />
 
 
 

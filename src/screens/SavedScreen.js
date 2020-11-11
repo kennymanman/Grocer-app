@@ -21,6 +21,8 @@ const {updateCart} = useContext(AddCartContext)
   const {cart} = useContext(AddCartContext)
 
 
+  const{removeFromSaved}= useContext(AddSavedContext)
+
 
     return (
 
@@ -65,13 +67,13 @@ style={{fontSize:35, color:"white", paddingLeft: 15, textAlign:"left"}}>Saved It
 <ScrollView>
 <View>
 
-{saved.map(({ name, image, price, description})=> (
+{saved.map(({ name, image, price, description} )=> (
 
   <ImageBackground
 
   source={image ? image: require("../img/sig.png")} 
      imageStyle={{borderRadius:12}}
-
+     key={name}
 
   style={{
     height: 187,
@@ -114,6 +116,7 @@ style={{fontSize:35, color:"white", paddingLeft: 15, textAlign:"left"}}>Saved It
   <Button type="clear"    
    style={{top:0, paddingLeft:152, right:0, marginTop:2, }}
 icon ={  <FontAwesome name="remove"  size={17} color="white"     />}
+onPress={()=> removeFromSaved({name, price, image})}
 />
 
 
