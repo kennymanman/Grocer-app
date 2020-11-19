@@ -16,7 +16,7 @@ import {Header, Left, Right, Title, Body, Subtitle} from "native-base"
 import { Avatar,  Card,  Paragraph } from 'react-native-paper';
 import data from "./data"
 import {AddCartContext, AddSavedContext} from "../screens/CartContext"
-
+import Deals from "./Deals";
 
 
 
@@ -71,7 +71,7 @@ imageStyle={{borderRadius:12}}
       position: "absolute", // child
       bottom: 0, // position where you want
       left: 0,
-      marginBottom:55,
+      marginBottom:65,
       marginLeft:10,
       fontSize: 20
     }}
@@ -84,19 +84,24 @@ imageStyle={{borderRadius:12}}
    left:0,
    position:"absolute",
     fontSize:15,
-    marginBottom:35,
+    marginBottom:45,
      marginLeft:10,
      color:"white"
      }}>${price} {""}</Text>
+
+
+     
 
   <Text style={{
     bottom:0,
      left:0,
      position: "absolute",
       marginLeft:10,
-       color:"white",
+       color:"yellow",
         fontSize:12,
-         marginBottom:5}}>
+         marginBottom:5
+         
+         }}>
   
   {description}{""}  </Text>
 
@@ -201,7 +206,7 @@ color= "black"
 <View style={{ marginBottom:100, paddingBottom:80}}>
   
     <FlatList    numColumns={2}   
-data={data}
+data={Deals}
  renderItem={renderItem}
  renderItem={({ item }) => renderItem({ navigation, item, useCart, useSaved })}
 keyExtractor={item=>item.id}

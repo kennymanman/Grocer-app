@@ -8,11 +8,12 @@ let deals = [
         id: "344455dg",
         name: "Orange",
         price: 2500,
-        description: "Get ",
+        description: "10 oranges plus 2 extra for this purchase ",
         quantity: 3,
         vendor: "pa salieu",
         image: require("../rmg/orange.jpg")
     },
+
 
   {
     id: "293384dj",
@@ -20,7 +21,7 @@ let deals = [
     name: "Banana",
     price: 500,
     quantity:2,
-    description: "fresh from the oguns",
+    description: "3 bunches of banana at this price",
     
     vendor: "pa salieu"
     },
@@ -32,7 +33,7 @@ let deals = [
         name: "Pineapple",
         price: 300,
         quantity:7,
-        description: "fresh from the seas",
+        description: "A basket of pineapples at this price.",
         
         vendor: "pa salieu"
 
@@ -46,7 +47,7 @@ let deals = [
     name: "Guava",
     price:450,
     quantity: 4,
-    description: "fresh from the seas",
+    description: "5 Guavas plus a banana at this price.",
     
     vendor: "pa salieu"
     },

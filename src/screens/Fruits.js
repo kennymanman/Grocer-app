@@ -39,13 +39,26 @@ const useCart = updateCart
 const useSaved = updateSaved
 
 
+const createTwoButtonAlert = () =>
+    Alert.alert(
+      "Added to Saved Items",
+      
+    );
+
+
+
+
+
+
+
+
 
 
 
 
 
 //Structure of the product list.
- const Form = ({name, description, price,  id, image}) => (
+ const Form = ({name, description, price,  id, image, images, full}) => (
   
   <ImageBackground
 source={image ? image: require("../img/sig.png")}  //Background Image
@@ -79,17 +92,20 @@ imageStyle={{borderRadius:12}}
     {name}
   </Text>
 
+
 <Text style={{
   bottom:0,
    left:0,
    position:"absolute",
     fontSize:15,
-    marginBottom:35,
+    marginBottom:30,
      marginLeft:10,
      color:"white"
      }}>${price} {""}</Text>
 
-  <Text style={{
+
+
+ {/* <Text style={{
     bottom:0,
      left:0,
      position: "absolute",
@@ -98,7 +114,7 @@ imageStyle={{borderRadius:12}}
         fontSize:12,
          marginBottom:5}}>
   
-  {description}{""}  </Text>
+ {description}{""}  </Text> */}
 
 
 
@@ -113,11 +129,13 @@ imageStyle={{borderRadius:12}}
          paddingLeft: 8,
          }}
 icon ={  <Feather name="heart"  size={15} color="white"     />}
-onPress={()=> updateSaved({name, price, description, image})}
+onPress={()=> updateSaved ({name, price, description, image})  }
+
 />
 
 
 <Button
+
  type="clear"    
   style={
   {right:0,
@@ -126,7 +144,8 @@ onPress={()=> updateSaved({name, price, description, image})}
          paddingLeft: 94,
          }}
 icon ={  <Feather name="shopping-bag"  size={15} color="white"     />}
-onPress={()=> updateCart({name, price, image})}
+onPress={()=> updateCart({name, price, image}) }
+
 />
 
 </View>
@@ -148,13 +167,14 @@ onPress={()=> updateCart({name, price, image})}
 
 //Render Items.
   const renderItem= ({ item, id, useCart, useSaved  })=> (  //had to remove navigation here so i could also render navigation.
-  <TouchableOpacity    onPress={()=> navigation.navigate("ProductPage" , { name: item.name , price: item.price, image: item.image})}>
+  <TouchableOpacity    onPress={()=> navigation.navigate("ProductPage" , { name: item.name , price: item.price, image: item.images})}>
       <Form
        id={item.id}
        name={item.name} 
        description={item.description}
        image={item.image}
        price={item.price}
+      images={item.images}
       
        />
       </TouchableOpacity>
