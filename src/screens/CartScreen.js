@@ -7,7 +7,9 @@ import {
     Image,
     FlatList,
     TouchableOpacity,
-    ScrollView}
+    ScrollView,
+     Alert     
+  }
     from "react-native"
 import { Button } from "react-native-elements"
 import Icon from "react-native-vector-icons/FontAwesome5"
@@ -31,7 +33,18 @@ export default function CartScreen({navigation}) {
 const{removeFromCart}= useContext(AddCartContext)
 
 
-let conditionData = [["select quantity","1", "2", "3","4","5","6","7","8","9","10","11","12"]];
+
+const Kandlepress = () =>
+Alert.alert(
+  "Removed",
+  
+);
+
+
+
+
+
+
     
 return (
 
@@ -118,12 +131,15 @@ paddingBottom:10}}>Deliver to: 92 lanre awolokun Gbagada </Title>
               
             
 
-            {cart.map(({ name, count, image, price})=> (
+            {cart.map(({ name, count, image, price, images, description, vendor})=> (
 
             <View style={{  flexDirection:"row"}}  key={name}>   
 
 
 
+
+
+<TouchableOpacity    onPress={()=> navigation.navigate("ProductPage" , { name: name , price: price, images:images, description:description, vendor: vendor})}>
 <ImageBackground 
               
               source={image ? image: require("../img/sig.png")}
@@ -154,9 +170,12 @@ paddingBottom:10}}>Deliver to: 92 lanre awolokun Gbagada </Title>
               icon ={  <FontAwesome name="remove"
               size={17}
               color="white"      />}
-              onPress={()=> removeFromCart({name, price, image})}
+              onPress={()=> {removeFromCart({name, price, image}); Kandlepress();}}
               /> 
               </ImageBackground> 
+
+</TouchableOpacity>
+
 
 
               <View style={{flexDirection:"column", paddingRight:90}}>

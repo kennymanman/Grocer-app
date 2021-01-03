@@ -97,7 +97,7 @@ imageStyle={{borderRadius:12}}
      left:0,
      position: "absolute",
       marginLeft:10,
-       color:"yellow",
+       color:"white",
         fontSize:12,
          marginBottom:5
          

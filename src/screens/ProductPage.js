@@ -15,6 +15,23 @@ import { AddCartContext, AddSavedContext } from "./CartContext";
 import { RNCarousel } from "react-native-carousel-cards";
 import DropdownMenu from "react-native-dropdownmenus";
 import NumericInput from 'react-native-numeric-input'
+import {
+  Menu,
+  MenuOptions,
+  MenuOption,
+  MenuTrigger,
+  SlideInMenu
+} from 'react-native-popup-menu';
+
+import SlidingUpPanel from 'rn-sliding-up-panel';
+import RNPickerSelect from 'react-native-picker-select';
+
+
+
+
+
+
+
 
 
 
@@ -28,23 +45,7 @@ export default function ProductPage({ route, navigation }) {
   const useCart = updateCart;
   const useSaved = updateSaved;
 
-  let conditionData = [
-    [
-      "select quantity",
-      "1",
-      "2",
-      "3",
-      "4",
-      "5",
-      "6",
-      "7",
-      "8",
-      "9",
-      "10",
-      "11",
-      "12"
-    ]
-  ];
+  
 
   return (
 
@@ -87,20 +88,25 @@ style={{
 
 
 
+
         <RNCarousel
-           style={{position:"absolute"}}
-          height={294}
+           style={{}}
+          height={395}
           showArrows={false}
           loop={false}
-          //data={route.params.images}
+          data={route.params.images}
 
-          data={[
-            { url: "https://images.pexels.com/photos/4110334/pexels-photo-4110334.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" },
-            { url: "https://multimediarepository.amadeus.com/cmr/retrieve/hotel/AF63CB0620F94B6FAE8B5BD390C58213" },
-            { url: "https://multimediarepository.amadeus.com/cmr/retrieve/hotel/895A263C718547B38011E65E53A7085A" },
-            { url: "https://multimediarepository.amadeus.com/cmr/retrieve/hotel/186D75B7A075470F95C7DF5E99F87380" }
-          ]} 
-       /> 
+          />
+
+        
+
+
+
+
+          
+
+         
+       
 
 
 
@@ -131,7 +137,7 @@ style={{
 
 
 
-
+<SlidingUpPanel height={50} draggableRange={{top:229, bottom:15}} friction={12} >
 
 
         <ImageBackground
@@ -145,7 +151,7 @@ style={{
 
             marginRight: 0,
             marginLeft: 0,
-            top: 283,
+            top: 0,
             left: 0
           }}
         >
@@ -173,7 +179,7 @@ style={{
 
        }}>
 
-          <Title style={{ fontSize: 25, textAlign: "left", top: 15, left: 12 }}>
+          <Title style={{ fontSize: 25, textAlign: "left", top: 20, left: 12 }}>
             {" "}
             {route.params.name}
           </Title>
@@ -191,46 +197,43 @@ style={{
             onPress={() => updateSaved({ name, price, description, image })}
           />
 
-
-
-
-
-
-
 </View>
 
 
-          <Title style={{ fontSize: 20, textAlign: "left", top: 9, left: 18 }}>
+
+
+
+          <Title style={{ fontSize: 20, textAlign: "left", top: 12, left: 18 }}>
             ${route.params.price}
           </Title>
 
 
 
           <Subtitle
-            style={{ fontSize: 12, textAlign: "left", top: 19, left: 18 }}
+            style={{ fontSize: 12, textAlign: "left", top: 35, left: 18 }}
           >
             Product Information
           </Subtitle>
+
           <Text
             style={{
               fontSize: 12,
               textAlign: "left",
-              top: 29,
+              top: 42,
               left: 20,
               marginRight: 30
             }}
           >
             
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry.Lorem Ipsum is simply dummy text of the printing and
-            typesetting industry. 
+            {route.params.description}
+
           </Text>
 
           <Subtitle
             style={{
               fontSize: 12,
               textAlign: "left",
-              top: 50,
+              top: 65,
               left: 15,
               marginRight: 30
             }}
@@ -241,16 +244,17 @@ style={{
             style={{
               fontSize: 15,
               textAlign: "left",
-              top: 55,
+              top: 72,
               left: 19,
-              marginRight: 30
+              marginRight: 30,
+              fontSize:13
             }}
           >
-            Mr Jon Snow
+            {route.params.vendor}
           </Text>
 
 
-          <View style={{ marginTop: 70, left: 25, flexDirection:"row" }}>
+          <View style={{ marginTop: 130, left: 25, flexDirection:"row" }}>
 
 
            {/*} <DropdownMenu
@@ -271,21 +275,83 @@ style={{
               selectIndex={[0]}
             ></DropdownMenu> */}
 
-<Title style={{ textAlign: "left", marginTop: 8, marginRight:120  }}>Quantity</Title>
+<Title style={{ textAlign: "left", marginTop: 0, marginRight:50  }}>Quantity</Title>
 
-<NumericInput  rounded minValue={0} rightButtonBackgroundColor="#2bc5fc" leftButtonBackgroundColor="#2bc5fc" onChange={value => console.log(value)} />
+{/*<NumericInput   rounded minValue={0} rightButtonBackgroundColor="black" leftButtonBackgroundColor="black"  iconStyle={{ color: 'white' }} onChange={value => console.log(value)} /> */}
 
 
 
             
-          </View>
+          
+
+        {/*}  <Menu >
+      <MenuTrigger text='Select quantity' />
+      
+      <MenuOptions >
+        <MenuOption onSelect={() => alert(`Save`)} text='Save' />
+        <MenuOption onSelect={() => alert(`Delete`)} >
+          <Text style={{color: 'red'}}>Delete</Text>
+        </MenuOption>
+        <MenuOption  text='1' />
+      </MenuOptions>
+      
+          </Menu> */}
+
+<View style={{marginTop:4}}>
+
+<RNPickerSelect 
+            onValueChange={(value) => console.log(value)}
+            placeholder={{label:"select quantity"}}
+            items={[
+                { label: '1', value: '1' },
+                { label: '2', value: '2' },
+                { label: '3', value: '3' },
+                { label: '4', value: '4' },
+                { label: '5', value: '5' },
+                { label: '6', value: '6' },
+                { label: '7', value: '7' },
+                { label: '8', value: '8' },
+                { label: '9', value: '9' },
+                { label: '10', value: '10' },
+                { label: '11', value: '11' },
+                { label: '12', value: '12' },
+                { label: '13', value: '13' },
+                { label: '14', value: '14' },
+                { label: '15', value: '15' },
+                { label: '16', value: '16' },
+                { label: '17', value: '17' },
+                { label: '18', value: '18' },
+                { label: '19', value: '19' },
+                { label: '20', value: '20' },
+            ]}
+        />
+
+</View>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </View>
+
+
+
+
 
           <Button //Checkout Button
             title="Add to Cart"
             style={{
               marginBottom: 900,
               width: 300,
-              marginTop: 15,
+              marginTop: 65,
               alignSelf: "center",
               paddingRight: 20,
               height: 100,
@@ -295,6 +361,10 @@ style={{
             onPress={() => updateCart({ name, price, image })}
           />
         </ImageBackground>
+
+        </SlidingUpPanel>
+
+
       </View>
     </ScrollView>
 
@@ -302,6 +372,8 @@ style={{
 
 
     </ImageBackground>
+
+  
 
     </View>
   );

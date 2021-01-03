@@ -1,5 +1,5 @@
 import React, {useContext} from "react"
-import { View, Text, StyleSheet,ImageBackground, Image, ScrollView} from "react-native"
+import { View, Text, StyleSheet,ImageBackground, Image, ScrollView, Alert, TouchableOpacity} from "react-native"
 import { Button } from 'react-native-elements';
 import Icon from "react-native-vector-icons/FontAwesome5"
 import {Title, Left} from "native-base"
@@ -22,6 +22,14 @@ const {updateCart} = useContext(AddCartContext)
 
 
   const{removeFromSaved}= useContext(AddSavedContext)
+
+
+
+  const Handlepress = () =>
+  Alert.alert(
+    "Added to Cart",
+    
+  );
 
 
     return (
@@ -64,11 +72,17 @@ style={{fontSize:35, color:"white", paddingLeft: 15, textAlign:"left"}}>Saved It
 
 
 
-<ScrollView>
-<View>
+<ScrollView >
+<View  >
 
-{saved.map(({ name, image, price, description} )=> (
+{saved.map(({ name, image, price, description, vendor, images}  )=> (
 
+
+
+
+
+
+<TouchableOpacity    onPress={()=> navigation.navigate("ProductPage" , { name: name , price: price, images:images, description:description, vendor: vendor})}>
   <ImageBackground
 
   source={image ? image: require("../img/sig.png")} 
@@ -89,6 +103,8 @@ style={{fontSize:35, color:"white", paddingLeft: 15, textAlign:"left"}}>Saved It
 >
 
 
+
+
   <Text    
     style={{
       fontWeight: 'bold',
@@ -107,9 +123,9 @@ style={{fontSize:35, color:"white", paddingLeft: 15, textAlign:"left"}}>Saved It
 <Text style={{bottom:0, left:0,position:"absolute", fontSize:15,marginBottom:35, marginLeft:10,color:"white"}}>${price}</Text>
 
 
-  <Text style={{bottom:0, left:0,position: "absolute", marginLeft:10, color:"white", fontSize:12, marginBottom:5}}>
+  {/*} <Text style={{bottom:0, left:0,position: "absolute", marginLeft:10, color:"white", fontSize:12, marginBottom:5}}>
   
-  {description}  </Text>
+  {description}  </Text> */}
 
 
 
@@ -123,12 +139,13 @@ onPress={()=> removeFromSaved({name, price, image})}
 <Button type="clear"    
    style={{top:0, paddingLeft:150, right:0, marginTop:5}}
 icon ={  <Feather name="shopping-bag"  size={17} color="white"     />}
-onPress={()=> updateCart({name, price, image})}
+onPress={()=> {updateCart({name, price, image}); Handlepress();   }}
 />
 
 
 </ImageBackground>
 
+</TouchableOpacity>
 
 
 ))}

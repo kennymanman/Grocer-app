@@ -9,16 +9,16 @@ let data = [
     price: 250,
     description: "fresh from the farms in osun state",
     quantity: 3,
-    vendor: "pa salieu",
+    vendor: "Micheal samuel",
     image: require("../rmg/orange.jpg"),
     images: [
       {
         url:
-          "https://upload.wikimedia.org/wikipedia/commons/7/7b/Orange-Whole-%26-Split.jpg"
+          "https://images.pexels.com/photos/207085/pexels-photo-207085.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
       },
       {
         url:
-          "https://upload.wikimedia.org/wikipedia/commons/7/7b/Orange-Whole-%26-Split.jpg"
+          "https://images.pexels.com/photos/2294477/pexels-photo-2294477.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
       },
       {
         url:

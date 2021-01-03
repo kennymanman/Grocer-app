@@ -39,14 +39,17 @@ const useCart = updateCart
 const useSaved = updateSaved
 
 
-const createTwoButtonAlert = () =>
+const Handlepress = () =>
     Alert.alert(
-      "Added to Saved Items",
+      "Added to Cart",
       
     );
 
 
-
+const Bandlepress = () =>
+    Alert.alert(
+      "Saved"
+    )
 
 
 
@@ -58,7 +61,7 @@ const createTwoButtonAlert = () =>
 
 
 //Structure of the product list.
- const Form = ({name, description, price,  id, image, images, full}) => (
+ const Form = ({name, description, price,  id, image, images, vendor}) => (
   
   <ImageBackground
 source={image ? image: require("../img/sig.png")}  //Background Image
@@ -129,9 +132,12 @@ imageStyle={{borderRadius:12}}
          paddingLeft: 8,
          }}
 icon ={  <Feather name="heart"  size={15} color="white"     />}
-onPress={()=> updateSaved ({name, price, description, image})  }
+onPress={()=> {updateSaved ({name, price, description, image, images, vendor}); Bandlepress();  }}
 
 />
+
+
+
 
 
 <Button
@@ -144,7 +150,7 @@ onPress={()=> updateSaved ({name, price, description, image})  }
          paddingLeft: 94,
          }}
 icon ={  <Feather name="shopping-bag"  size={15} color="white"     />}
-onPress={()=> updateCart({name, price, image}) }
+onPress={()=> {updateCart({name, price, image, images, description, vendor}); Handlepress();    }} 
 
 />
 
@@ -167,7 +173,7 @@ onPress={()=> updateCart({name, price, image}) }
 
 //Render Items.
   const renderItem= ({ item, id, useCart, useSaved  })=> (  //had to remove navigation here so i could also render navigation.
-  <TouchableOpacity    onPress={()=> navigation.navigate("ProductPage" , { name: item.name , price: item.price, image: item.images})}>
+  <TouchableOpacity    onPress={()=> navigation.navigate("ProductPage" , { name: item.name , price: item.price, images: item.images, description: item.description, vendor: item.vendor})}>
       <Form
        id={item.id}
        name={item.name} 
@@ -175,6 +181,7 @@ onPress={()=> updateCart({name, price, image}) }
        image={item.image}
        price={item.price}
       images={item.images}
+      vendor={item.vendor}
       
        />
       </TouchableOpacity>
