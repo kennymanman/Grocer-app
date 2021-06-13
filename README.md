@@ -1,10 +1,11 @@
+
 # Grocer-app
 # Grocery E-commerce app
 
 A React native and Expo built project app built as an application to market groceries for grocery sellers and connect them to viable customers while providing affordable prices for the customers(Still in development for the backend) 
 
+![icon](https://user-images.githubusercontent.com/61712644/121791912-e77ad400-cb79-11eb-9146-4e4b2f4309b9.png)
 
-![Logo](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/th5xamgrr6se0x5ro4g6.png)
 
     
 ## Screenshots
