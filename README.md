@@ -1,4 +1,5 @@
 
+
 # Grocer-app
 # Grocery E-commerce app
 
@@ -10,7 +11,9 @@ A React native and Expo built project app built as an application to market groc
     
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+
+![Untitled design (1)](https://user-images.githubusercontent.com/61712644/122487199-a1e94d00-cf65-11eb-927c-38047720e5cb.png)
+![Untitled design (4)](https://user-images.githubusercontent.com/61712644/122487206-a6156a80-cf65-11eb-995c-2f7a21031521.png)
 
   
 ## Run Locally
