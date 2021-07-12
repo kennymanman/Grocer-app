@@ -7,18 +7,18 @@ let data = [
     id: "344455dg",
     name: "Orange",
     price: 250,
-    description: "fresh from the farms in osun state",
+    description: "fresh from the farms",
     quantity: 3,
-    vendor: "Micheal samuel",
+    vendor: "pa salieu",
     image: require("../rmg/orange.jpg"),
     images: [
       {
         url:
-          "https://images.pexels.com/photos/207085/pexels-photo-207085.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+          "https://upload.wikimedia.org/wikipedia/commons/7/7b/Orange-Whole-%26-Split.jpg"
       },
       {
         url:
-          "https://images.pexels.com/photos/2294477/pexels-photo-2294477.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+          "https://upload.wikimedia.org/wikipedia/commons/7/7b/Orange-Whole-%26-Split.jpg"
       },
       {
         url:
@@ -29,13 +29,7 @@ let data = [
           "https://upload.wikimedia.org/wikipedia/commons/7/7b/Orange-Whole-%26-Split.jpg"
       }
     ]
-    
-    
   },
-
-
-
-  
 
   {
     id: "293384dj",
@@ -149,8 +143,6 @@ let data = [
           "https://upload.wikimedia.org/wikipedia/commons/7/7b/Orange-Whole-%26-Split.jpg"
       }
     ]
-
-  
   },
 
   {

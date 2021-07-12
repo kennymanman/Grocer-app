@@ -26,22 +26,12 @@ import { Avatar } from "react-native-paper";
 import Animated from "react-native-reanimated";
 import BottomSheet from "reanimated-bottom-sheet";
 
-
-
-
-
-
-
 export default function HomeScreen({ navigation }) {
   const { updateCart } = useContext(AddCartContext);
   const { updateSaved } = useContext(AddSavedContext);
 
   const useCart = updateCart;
   const useSaved = updateSaved;
-
-
-
-
 
   //Structure of the product list.
   const Form = ({ name, description, price, id, image }) => (
@@ -67,7 +57,7 @@ export default function HomeScreen({ navigation }) {
           position: "absolute", // child
           bottom: 0, // position where you want
           left: 0,
-          marginBottom: 65,
+          marginBottom: 55,
           marginLeft: 10,
           fontSize: 20
         }}
@@ -81,7 +71,7 @@ export default function HomeScreen({ navigation }) {
           left: 0,
           position: "absolute",
           fontSize: 15,
-          marginBottom: 45,
+          marginBottom: 35,
           marginLeft: 10,
           color: "white"
         }}
@@ -103,8 +93,6 @@ export default function HomeScreen({ navigation }) {
         {description}
         {""}{" "}
       </Text>
-
-
 
       <View style={{ flexDirection: "row" }}>
         <Button
@@ -166,7 +154,7 @@ export default function HomeScreen({ navigation }) {
 
           <Image
             style={{
-              width: 388,
+              width: 349,
               height: 100,
               alignItems: "center",
               borderRadius: 19,
@@ -177,7 +165,7 @@ export default function HomeScreen({ navigation }) {
 
           <Image
             style={{
-              width: 388,
+              width: 349,
               height: 350,
               alignItems: "center",
               borderRadius: 20,
@@ -188,7 +176,7 @@ export default function HomeScreen({ navigation }) {
 
           <Image
             style={{
-              width: 388,
+              width: 349,
               height: 290,
               alignItems: "center",
               borderRadius: 20,
@@ -198,11 +186,9 @@ export default function HomeScreen({ navigation }) {
           />
 
           <View style={{ marginTop: 45 }}>
-            <Text style={{ textAlign: "left", fontSize: 35, marginLeft: 8 , textDecorationLine: 'underline', fontWeight: 'bold'}}>
-              
+            <Title style={{ textAlign: "left", fontSize: 35, marginLeft: 8 }}>
               Deals
-              
-            </Text>
+            </Title>
             <Text style={{ marginLeft: 12, fontSize: 13, marginTop: 8 }}>
               Enjoy deals, offers and discounts at affordable prices.
             </Text>
