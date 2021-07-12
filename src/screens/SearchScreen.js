@@ -89,7 +89,7 @@ export default function SearchScreen ({navigation}) {
 
 <ImageBackground 
  source={require('../rmg/sag.jpg')}
- style={{width:379, height: 200}}
+ style={{ height: 250, backgroundSize:"cover"}}
  imageStyle={{borderBottomRightRadius:70}}
 
 >
@@ -117,7 +117,7 @@ style={{marginTop:0, padding:12, borderBottomRightRadius:30, borderTopRightRadiu
 >
 </TextInput>
 
-<Feather name="search" size={19} color="gray" style={{position:"absolute", left:5, top:139}} />
+<Feather name="search" size={19} color="gray" style={{position:"absolute", left:5, top:159}} />
 
 
 
@@ -465,6 +465,6 @@ const styles = StyleSheet.create({
           alignItems: "flex-end",
           paddingLeft: 8,
           paddingRight:19,
-          paddingTop: 29
+          paddingTop: 49
       }
 })

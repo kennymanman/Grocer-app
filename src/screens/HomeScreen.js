@@ -166,7 +166,7 @@ export default function HomeScreen({ navigation }) {
 
           <Image
             style={{
-              width: 349,
+              width: 388,
               height: 100,
               alignItems: "center",
               borderRadius: 19,
@@ -177,7 +177,7 @@ export default function HomeScreen({ navigation }) {
 
           <Image
             style={{
-              width: 349,
+              width: 388,
               height: 350,
               alignItems: "center",
               borderRadius: 20,
@@ -188,7 +188,7 @@ export default function HomeScreen({ navigation }) {
 
           <Image
             style={{
-              width: 349,
+              width: 388,
               height: 290,
               alignItems: "center",
               borderRadius: 20,
@@ -198,9 +198,11 @@ export default function HomeScreen({ navigation }) {
           />
 
           <View style={{ marginTop: 45 }}>
-            <Title style={{ textAlign: "left", fontSize: 35, marginLeft: 8 }}>
+            <Text style={{ textAlign: "left", fontSize: 35, marginLeft: 8 , textDecorationLine: 'underline', fontWeight: 'bold'}}>
+              
               Deals
-            </Title>
+              
+            </Text>
             <Text style={{ marginLeft: 12, fontSize: 13, marginTop: 8 }}>
               Enjoy deals, offers and discounts at affordable prices.
             </Text>

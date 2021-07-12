@@ -44,8 +44,8 @@ const {updateCart} = useContext(AddCartContext)
              source={require('../img/die.jpg')}
              imageStyle={{borderRadius:0}}
           style={{
-            height: 621,
-            width: 375,
+            height: 821,
+            backgroundSize:"cover",
             position: 'relative', // because it's parent
             
             top: 0,
@@ -198,7 +198,7 @@ const styles = StyleSheet.create({
 
       sitch: {
           alignItems: "flex-end",
-          paddingTop:25,
+          paddingTop:45,
           paddingRight:12
           
       },

@@ -56,8 +56,8 @@ return (
 source={require('../img/jie.jpg')}
 imageStyle={{borderRadius:0}}
 style={{
-height: 621,
-width: 375,
+height: 821,
+backgroundSize:"cover",
 position: 'relative', // because it's parent
 top: 0,
      }}
@@ -67,7 +67,7 @@ top: 0,
              
              
 <Button style={{ alignItems: "flex-end",
-          paddingTop:25,
+          paddingTop:45,
           paddingRight:12}} 
 type="clear"
 icon={

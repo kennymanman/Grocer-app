@@ -61,7 +61,7 @@ export default function DrawerContent(props) {
           
           
           
-          <DrawerItem
+        <DrawerItem
             icon={({ color, size }) => (
               <MaterialCommunityIcons
                 name="account-outline"
@@ -98,7 +98,7 @@ export default function DrawerContent(props) {
             label="Bookmarks"
             onPress={() => {}}
           />
-
+            
 
 
         </Drawer.Section>
